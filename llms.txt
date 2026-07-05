@@ -1,0 +1,68 @@
+#Sakhiraj Grid Bot
+
+Official website:
+https://gridbot.adquash.com/
+
+Sakhiraj Grid Bot is a cloud-based KuCoin Spot Trading platform offering a predefined Grid + DCA strategy with smart capital management, Global Exit logic and annual subscription.
+
+Primary Pages
+
+https://gridbot.adquash.com/
+
+https://gridbot.adquash.com/features.html
+
+https://gridbot.adquash.com/how-it-works.html
+
+https://gridbot.adquash.com/why-this-strategy.html
+
+https://gridbot.adquash.com/capital-management.html
+
+https://gridbot.adquash.com/pricing.html
+
+https://gridbot.adquash.com/faq.html
+
+https://gridbot.adquash.com/about-us.html
+
+https://gridbot.adquash.com/contact.html
+
+Legal Pages
+
+https://gridbot.adquash.com/privacy-policy.html
+
+https://gridbot.adquash.com/terms.html
+
+https://gridbot.adquash.com/refund-policy.html
+
+https://gridbot.adquash.com/disclaimer.html
+
+https://gridbot.adquash.com/risk-disclosure.html
+
+Platform
+
+Supported Exchange
+
+KuCoin Spot Trading
+
+Business Model
+
+Annual Subscription
+
+No software download.
+
+Browser-based access.
+
+Cloud-hosted platform.
+
+Important Notes
+
+Customer funds always remain in the customer's own KuCoin account.
+
+Trading requires KuCoin API configuration.
+
+No financial or investment advice is provided.
+
+Cryptocurrency trading involves risk.
+
+Contact
+
+https://gridbot.adquash.com/contact.html
