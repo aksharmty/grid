@@ -1,0 +1,135 @@
+/* ==========================================================================
+   SAKHIRAJ GRID BOT - CORE LAYOUT SYSTEM (2026 Crypto Dark Theme)
+   ========================================================================== */
+
+/* 1. Global Reset & Core Variables */
+:root {
+    --bg-main: #0b0e11;       /* Deep KuCoin Style Dark */
+    --bg-card: #181a20;       /* Card & Container Background */
+    --border-color: #2b2f36;  /* Grid lines and borders */
+    --accent-green: #4ade80;  /* Crypto Neon Green */
+    --text-white: #eaecef;    /* Primary Text */
+    --text-gray: #848e9c;     /* Secondary Text */
+}
+
+body {
+    background-color: var(--bg-main);
+    color: var(--text-white);
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-col: column;
+    min-height: 100vh;
+}
+
+/* 2. Main Page Layout Wrapper (Container) */
+.page-container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 24px 16px;
+    box-sizing: border-box;
+}
+
+/* Responsive Grid Splitter for Main Content + Sidebar */
+.layout-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 24px;
+    margin-top: 20px;
+}
+
+@media (min-width: 1024px) {
+    .layout-grid {
+        grid-template-columns: 3fr 1fr; /* Content 75%, Sidebar 25% */
+    }
+}
+
+/* 3. Header Template Styling */
+header, nav {
+    background-color: var(--bg-card);
+    border-b: 1px solid var(--border-color);
+    width: 100%;
+}
+
+.nav-link {
+    color: var(--text-white);
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.nav-link:hover, .nav-link.active {
+    color: var(--accent-green);
+}
+
+/* 4. Sidebar & Advertising Structure */
+aside {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.sidebar-ad-box {
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 16px;
+    text-align: center;
+}
+
+/* 5. Crypto Performance & Bot Data Tables */
+.table-container {
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    overflow: hidden;
+    margin-top: 20px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+    font-size: 14px;
+}
+
+th {
+    background-color: #1f222a;
+    color: var(--text-gray);
+    font-weight: 600;
+    padding: 14px 16px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+td {
+    padding: 14px 16px;
+    border-bottom: 1px solid var(--border-color);
+    color: var(--text-white);
+}
+
+tr:last-child td {
+    border-bottom: none;
+}
+
+tr:hover td {
+    background-color: #1e222b; /* Subtle row highlight on hover */
+}
+
+/* 6. Cards & Reusable UI Blocks */
+.card {
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 24px;
+}
+
+/* 7. Footer Template Styling */
+footer {
+    background-color: var(--bg-card);
+    border-top: 1px solid var(--border-color);
+    padding: 30px 16px;
+    margin-top: auto; /* Pushes footer to bottom */
+    width: 100%;
+    box-sizing: border-box;
+}
