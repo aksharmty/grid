@@ -1,115 +1,735 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Automated KuCoin Trading Bots</title>
-    <!-- Tailwind CSS CDN -->
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-    <style>
-        body { background-color: #0b0e11; color: #eaecef; }
-        .card { background-color: #181a20; border: 1px solid #2b2f36; }
-    </style>
+<meta charset="UTF-8">
+<link rel='shortcut icon' href='logo.png' type='image/x-icon' />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sakhiraj Grid Bot | Cloud-Based KuCoin Spot Trading Platform</title>
+<meta name="description" content="Sakhiraj Grid Bot is a cloud-based KuCoin Spot Trading platform featuring a fixed Grid + DCA strategy, smart capital management, automatic compounding and annual subscription.">
+<meta name="keywords" content="KuCoin Grid Bot, DCA Bot, Spot Trading Bot, Crypto Trading Bot, Cloud Trading Platform">
+<link rel="stylesheet" href="style.css">
+<style>
+
+.hero{
+    text-align:center;
+    padding:50px 20px;
+    background:#f8fbff;
+    border:1px solid #e5e5e5;
+    border-radius:10px;
+    margin-bottom:25px;
+}
+
+.hero h1{
+    font-size:42px;
+    margin-bottom:15px;
+}
+
+.hero p{
+    max-width:800px;
+    margin:15px auto;
+    font-size:18px;
+    line-height:1.8;
+}
+
+.hero-buttons{
+    margin:30px 0;
+}
+
+.hero-buttons .btn{
+    margin:8px;
+    padding:14px 28px;
+}
+
+.price-highlight{
+    font-size:28px;
+    font-weight:bold;
+    color:#0d6efd;
+}
+
+.trust-bar{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+    gap:15px;
+    margin:30px 0;
+}
+
+.trust-item{
+    background:#fff;
+    border:1px solid #ddd;
+    border-radius:8px;
+    padding:18px;
+    text-align:center;
+    font-weight:bold;
+}
+
+.feature-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+    gap:20px;
+    margin-top:20px;
+}
+
+.feature{
+    border:1px solid #ddd;
+    border-radius:8px;
+    padding:20px;
+    background:#fff;
+}
+
+.feature h3{
+    margin-bottom:10px;
+    color:#0d6efd;
+}
+
+@media(max-width:768px){
+
+.hero{
+    padding:30px 15px;
+}
+
+.hero h1{
+    font-size:30px;
+}
+
+.hero p{
+    font-size:16px;
+}
+
+.price-highlight{
+    font-size:22px;
+}
+
+}
+
+</style>
+
 </head>
-<body class="font-sans antialiased selection:bg-green-500 selection:text-black">
 
-    <!-- HERO SECTION -->
-    <header class="max-w-5xl mx-auto px-6 pt-16 pb-12 text-center">
-        <div class="inline-flex items-center gap-2 bg-green-500/10 text-green-400 px-4 py-1.5 rounded-full text-sm font-medium mb-6">
-            🤖 100% Automated Crypto Trading
-        </div>
-        <h1 class="text-4xl md:text-6xl font-black tracking-tight text-white max-w-3xl mx-auto leading-tight">
-            Maximize Crypto Profits With <span class="text-green-400">KuCoin Bots</span> 24/7
-        </h1>
-        <p class="mt-6 text-lg text-gray-400 max-w-2xl mx-auto">
-            No technical skills needed. Hamare proven Grid aur DCA bots se passive income generate karna shuru karein — Bilkul FREE!
-        </p>
-        
-        <!-- MAIN CALL TO ACTIONS -->
-        <div class="mt-10 flex flex-col sm:flex-row gap-4 justify-center items-center">
-            <!-- REPLACE WITH YOUR KUCOIN REFERRAL LINK -->
-            <a href="https://www.kucoin.com/r/af/r8Y9LBX" target="_blank" class="w-full sm:w-auto bg-green-400 hover:bg-green-500 text-black font-extrabold px-8 py-4 rounded-lg shadow-lg text-center transition transform hover:-translate-y-0.5">
-                Step 1: Create KuCoin Account
-            </a>
-            <!-- REPLACE WITH YOUR WHATSAPP LINK -->
-            <a href="https://wa.me/919213816442?text=Hi,%20I%20have%20created%20my%20KuCoin%20account%20using%20your%20link.%20Please%20activate%20my%20bot!" target="_blank" class="w-full sm:w-auto bg-gray-800 hover:bg-gray-700 text-white font-bold px-8 py-4 rounded-lg text-center transition border border-gray-700">
-                Step 2: Connect on WhatsApp
-            </a>
-        </div>
-    </header>
+<body>
 
-    <!-- SAFETY ASSURANCE BANNER -->
-    <section class="max-w-4xl mx-auto px-6 mb-16">
-        <div class="bg-yellow-500/10 border border-yellow-500/20 rounded-xl p-5 flex items-start gap-4">
-            <span class="text-2xl">🔒</span>
-            <div>
-                <h4 class="font-bold text-yellow-400">Your Funds Stay 100% Safe</h4>
-                <p class="text-sm text-gray-400 mt-1">Hamein aapke paise nahi chahiye. Aapka fund aapke khud ke KuCoin account mein rahega. Aap jo API Key denge usmein withdrawal strictly disabled rahega.</p>
-            </div>
-        </div>
-    </section>
+<div w3-include-html="header.html"></div>
 
-    <!-- HOW IT WORKS SECTION -->
-    <section class="max-w-5xl mx-auto px-6 py-12 border-t border-gray-800">
-        <h2 class="text-3xl font-bold text-center text-white mb-12">Bot Kaise Start Karein?</h2>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div class="card p-6 rounded-xl">
-                <div class="w-10 h-10 rounded-lg bg-green-500/10 flex items-center justify-center font-bold text-green-400 text-lg mb-4">1</div>
-                <h3 class="text-xl font-bold text-white mb-2">Sign Up on KuCoin</h3>
-                <p class="text-gray-400 text-sm leading-relaxed">Website par diye gaye hamare special partner link se KuCoin par ek naya trading account banayein.</p>
-            </div>
-            <div class="card p-6 rounded-xl">
-                <div class="w-10 h-10 rounded-lg bg-green-500/10 flex items-center justify-center font-bold text-green-400 text-lg mb-4">2</div>
-                <h3 class="text-xl font-bold text-white mb-2">Fund Your Account</h3>
-                <p class="text-gray-400 text-sm leading-relaxed">Apne KuCoin wallet mein minimum investment amount ($100 to $500) deposit karein jisse bot trading shuru kar sake.</p>
-            </div>
-            <div class="card p-6 rounded-xl">
-                <div class="w-10 h-10 rounded-lg bg-green-500/10 flex items-center justify-center font-bold text-green-400 text-lg mb-4">3</div>
-                <h3 class="text-xl font-bold text-white mb-2">Send Confirmation</h3>
-                <p class="text-gray-400 text-sm leading-relaxed">Hamein WhatsApp ya Email par apna KuCoin UID bhein. Verification ke baad hum aapka bot 10 mins mein live kar denge.</p>
-            </div>
-        </div>
-    </section>
+<div class="container main">
 
-    <!-- STRATEGIES SECTION -->
-    <section class="max-w-5xl mx-auto px-6 py-12 border-t border-gray-800">
-        <h2 class="text-3xl font-bold text-center text-white mb-12">Hamare Trading Bots</h2>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div class="card p-8 rounded-xl flex flex-col justify-between">
-                <div>
-                    <span class="text-3xl">📊</span>
-                    <h3 class="text-2xl font-bold text-white mt-4 mb-3">Spot Grid Bot</h3>
-                    <p class="text-gray-400 text-sm leading-relaxed mb-4">
-                        Market ke chhote-chhote utaar-chadhav (volatility) ka fayda uthakar automatic **Buy Low, Sell High** karta hai. Jab aap so rahe hote hain, tab bhi ye sideways market mein regular profit nikalta hai.
-                    </p>
-                </div>
-                <span class="text-xs font-semibold tracking-wider text-green-400 uppercase mt-4 bg-green-500/10 px-3 py-1 rounded w-fit">Best for Sideways Market</span>
-            </div>
-            
-            <div class="card p-8 rounded-xl flex flex-col justify-between">
-                <div>
-                    <span class="text-3xl">📈</span>
-                    <h3 class="text-2xl font-bold text-white mt-4 mb-3">DCA (Dollar-Cost Average) Bot</h3>
-                    <p class="text-gray-400 text-sm leading-relaxed mb-4">
-                        Har fixed time interval par (e.g., har ghante ya har din) coin ko thoda-thoda buy karta hai. Market girne par buying price average ho jati hai aur bada risk khatam ho jata hai.
-                    </p>
-                </div>
-                <span class="text-xs font-semibold tracking-wider text-blue-400 uppercase mt-4 bg-blue-500/10 px-3 py-1 rounded w-fit">Best for Long-Term Accumulation</span>
-            </div>
-        </div>
-    </section>
+<div class="content">
 
-    <!-- FINAL CALL TO ACTION FOOTER -->
-    <footer class="max-w-5xl mx-auto px-6 py-16 text-center border-t border-gray-800">
-        <h3 class="text-2xl font-bold text-white mb-4">Ready to Automate Your Trades?</h3>
-        <p class="text-gray-400 mb-8 max-w-md mx-auto text-sm">Koi sawal hai? Ya account verify karwana hai? Direct WhatsApp par baat karein, koi fees nahi hai.</p>
-        
-        <!-- REPEAT WHATSAPP LINK -->
-        <a href="https://wa.me/919213816442?text=Hi,%20I%20want%20to%20know%20more%20about%20KuCoin%20Bots." target="_blank" class="inline-flex items-center gap-2 bg-green-500 hover:bg-green-600 text-black font-extrabold px-8 py-4 rounded-lg shadow-lg transition">
-            💬 Chat On WhatsApp Now
-        </a>
-        <p class="text-xs text-gray-600 mt-12">© 2026 KuBot Automation. Not financial advice. Crypto trading involves risk.</p>
-    </footer>
+<div class="hero">
+
+<h1>Automate Your KuCoin Spot Trading</h1>
+
+<p>
+
+Sakhiraj Grid Bot is a cloud-based trading platform designed for KuCoin Spot Trading. It follows a predefined Grid + DCA strategy with smart capital management, automatic compounding and browser-based access.
+
+</p>
+
+<p class="price-highlight">
+
+Annual Subscription Starting From ₹1,200
+
+</p>
+
+<div class="hero-buttons">
+
+<a href="pricing.html" class="btn">
+
+Start Trading Today
+
+</a>
+
+<a href="https://www.kucoin.com/r/af/r8Y9LBX" class="btn" target="_blank">
+
+Create KuCoin Account
+
+</a>
+
+</div>
+
+<p>
+
+No Software Installation • Browser Access • Annual Subscription
+
+</p>
+
+</div>
+
+
+
+<div class="trust-bar">
+
+<div class="trust-item">
+
+☁️<br><br>
+
+Cloud Based Platform
+
+</div>
+
+<div class="trust-item">
+
+🌐<br><br>
+
+Browser Login
+
+</div>
+
+<div class="trust-item">
+
+📈<br><br>
+
+KuCoin Spot Trading
+
+</div>
+
+<div class="trust-item">
+
+🔒<br><br>
+
+Funds Stay in Your KuCoin Account
+
+</div>
+
+</div>
+
+
+
+<div class="card">
+
+<h2>Why Choose Sakhiraj Grid Bot?</h2>
+
+<p>
+
+Our platform is built for traders who prefer a simple, consistent and cloud-based trading experience. There are no complicated strategy settings, software downloads or VPS requirements.
+
+</p>
+
+<div class="feature-grid">
+
+<div class="feature">
+
+<h3>Cloud Platform</h3>
+
+<p>
+
+Trade from anywhere using your web browser.
+
+</p>
+
+</div>
+
+
+
+<div class="feature">
+
+<h3>Fixed Grid + DCA Strategy</h3>
+
+<p>
+
+One optimized strategy for all subscribers.
+
+</p>
+
+</div>
+
+
+
+<div class="feature">
+
+<h3>Smart Capital Management</h3>
+
+<p>
+
+Designed to keep trading capital available through Global Exit.
+
+</p>
+
+</div>
+
+
+
+<div class="feature">
+
+<h3>Automatic Compounding</h3>
+
+<p>
+
+Attempts to increase order value as your trading capital grows.
+
+</p>
+
+</div>
+
+
+
+<div class="feature">
+
+<h3>Buy & Sell History</h3>
+
+<p>
+
+View your complete trading history anytime.
+
+</p>
+
+</div>
+
+
+
+<div class="feature">
+
+<h3>Annual Subscription</h3>
+
+<p>
+
+Simple yearly pricing with continuous platform updates.
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="card">
+
+<h2>How Sakhiraj Grid Bot Works</h2>
+
+<p>
+
+Getting started is simple. The platform is fully cloud-based, so you only need your KuCoin account and API connection.
+
+</p>
+
+<div class="feature-grid">
+
+<div class="feature">
+
+<h3>Step 1</h3>
+
+<p>
+
+Create a new KuCoin account using our referral link or use your existing KuCoin account.
+
+</p>
+
+</div>
+
+<div class="feature">
+
+<h3>Step 2</h3>
+
+<p>
+
+Purchase the annual subscription and securely connect your KuCoin API.
+
+</p>
+
+</div>
+
+<div class="feature">
+
+<h3>Step 3</h3>
+
+<p>
+
+Login through your browser while the platform automatically follows its predefined trading strategy.
+
+</p>
+
+</div>
+
+</div>
+
+<p style="text-align:center;margin-top:25px;">
+
+<a href="how-it-works.html" class="btn">
+
+Learn More About How It Works
+
+</a>
+
+</p>
+
+</div>
+
+
+
+<div class="card">
+
+<h2>Why Our Strategy Is Different</h2>
+
+<p>
+
+Many Grid Bots continue buying during prolonged market declines, which can lock a large portion of trading capital. Sakhiraj Grid Bot is designed with smart capital management to help keep funds available for future trading opportunities.
+
+</p>
+
+<div class="feature-grid">
+
+<div class="feature">
+
+<h3>Fixed Strategy</h3>
+
+<p>
+
+Every subscriber uses the same optimized trading logic. No confusing settings or strategy selection.
+
+</p>
+
+</div>
+
+<div class="feature">
+
+<h3>Global Exit</h3>
+
+<p>
+
+The platform monitors the combined value of active positions and can release capital once the predefined portfolio profit target is achieved.
+
+</p>
+
+</div>
+
+<div class="feature">
+
+<h3>Capital Reuse</h3>
+
+<p>
+
+Instead of remaining locked indefinitely, trading capital is intended to become available again for the next trading cycle.
+
+</p>
+
+</div>
+
+</div>
+
+<p style="text-align:center;margin-top:25px;">
+
+<a href="why-this-strategy.html" class="btn">
+
+Learn About Our Strategy
+
+</a>
+
+</p>
+
+</div>
+
+
+
+<div class="card">
+
+<h2>Smart Capital Management</h2>
+
+<p>
+
+Capital management is one of the core strengths of Sakhiraj Grid Bot. Rather than focusing only on individual trades, the platform evaluates the overall portfolio and attempts to use available capital efficiently through its predefined trading logic.
+
+</p>
+
+<ul>
+
+<li>Designed for continuous trading.</li>
+
+<li>Supports automatic compounding whenever possible.</li>
+
+<li>Portfolio-based Global Exit.</li>
+
+<li>Browser-based account monitoring.</li>
+
+<li>Trading history available online.</li>
+
+</ul>
+
+<p style="text-align:center;margin-top:25px;">
+
+<a href="capital-management.html" class="btn">
+
+Read More
+
+</a>
+
+</p>
+
+</div>
+
+
+
+<div class="card">
+
+<h2>Annual Subscription</h2>
+
+<p style="text-align:center;font-size:22px;">
+
+Choose the subscription that matches your KuCoin account.
+
+</p>
+
+<table>
+
+<tr>
+
+<th>Subscription</th>
+
+<th>Annual Fee</th>
+
+</tr>
+
+<tr>
+
+<td>
+
+<strong>Referral Subscription</strong><br>
+
+Create a new KuCoin account using our official referral link.
+
+</td>
+
+<td>
+
+<strong style="color:#198754;">₹1,200</strong>
+
+</td>
+
+</tr>
+
+<tr>
+
+<td>
+
+<strong>Standard Subscription</strong><br>
+
+For existing KuCoin account holders.
+
+</td>
+
+<td>
+
+<strong>₹3,000</strong>
+
+</td>
+
+</tr>
+
+</table>
+
+<p style="margin-top:20px;text-align:center;">
+
+<a href="pricing.html" class="btn">
+
+View Complete Pricing
+
+</a>
+
+&nbsp;
+
+<a href="https://www.kucoin.com/r/af/r8Y9LBX" target="_blank" class="btn">
+Create KuCoin Account
+</a>
+</p>
+</div>
+
+<div class="card">
+<h2>Why Traders Choose Sakhiraj Grid Bot</h2>
+
+<p>
+
+Sakhiraj Grid Bot is designed for traders who prefer simplicity, consistency and cloud-based automation instead of managing complex trading settings.
+
+</p>
+
+<div class="feature-grid">
+
+<div class="feature">
+
+<h3>No Software</h3>
+
+<p>
+
+Everything runs on the cloud. No download or installation required.
+
+</p>
+
+</div>
+
+<div class="feature">
+
+<h3>Browser Access</h3>
+
+<p>
+
+Access your account securely from any modern web browser.
+
+</p>
+
+</div>
+
+<div class="feature">
+
+<h3>No VPS Required</h3>
+
+<p>
+
+The platform is hosted on our cloud infrastructure.
+
+</p>
+
+</div>
+
+<div class="feature">
+
+<h3>Simple Subscription</h3>
+
+<p>
+
+One annual subscription with regular platform improvements.
+
+</p>
+
+</div>
+
+<div class="feature">
+
+<h3>Secure API Connection</h3>
+
+<p>
+
+Connect your KuCoin account using Trading API only. Withdrawal permission should always remain disabled.
+
+</p>
+
+</div>
+
+<div class="feature">
+
+<h3>Your Funds Stay with You</h3>
+
+<p>
+
+Your assets always remain in your own KuCoin account. Sakhiraj Grid Bot never holds or withdraws customer funds.
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+
+
+<div class="card">
+
+<h2>Frequently Asked Questions</h2>
+
+<table>
+
+<tr>
+
+<td><strong>Do I need to install any software?</strong></td>
+
+<td>No. Everything is cloud-based.</td>
+
+</tr>
+
+<tr>
+
+<td><strong>Can I stop the bot anytime?</strong></td>
+
+<td>Yes. The bot can be stopped on request, but your subscription period remains unchanged.</td>
+
+</tr>
+
+<tr>
+
+<td><strong>Can I withdraw my funds?</strong></td>
+
+<td>Yes. Your funds remain in your own KuCoin account.</td>
+
+</tr>
+
+<tr>
+
+<td><strong>Is profit guaranteed?</strong></td>
+
+<td>No. Cryptocurrency trading always involves market risk.</td>
+
+</tr>
+
+</table>
+
+<p style="text-align:center;margin-top:20px;">
+
+<a href="faq.html" class="btn">
+
+View All FAQs
+
+</a>
+
+</p>
+
+</div>
+
+
+
+<div class="card" style="text-align:center;background:#f8fbff;">
+
+<h2>Ready to Start?</h2>
+
+<p>
+
+Join thousands of traders who prefer a simple, cloud-based approach to KuCoin Spot Trading.
+
+</p>
+
+<p style="font-size:24px;font-weight:bold;color:#0d6efd;">
+
+Annual Subscription Starting From ₹1,200
+
+</p>
+
+<p>
+
+Create your KuCoin account using our official referral link and save ₹1,800 every year.
+
+</p>
+
+<p>
+
+<a href="https://www.kucoin.com/r/af/r8Y9LBX" target="_blank" class="btn">
+
+Create KuCoin Account
+
+</a>
+
+&nbsp;
+
+<a href="pricing.html" class="btn">
+
+Subscribe Now
+
+</a>
+
+</p>
+
+</div>
+
+</div>
+
+<aside class="sidebar">
+
+<div w3-include-html="sidebar.html"></div>
+
+</aside>
+
+</div>
+
+<div w3-include-html="footer.html"></div>
+
+<script src="w3.js"></script>
 
 </body>
-      </html>
+
+</html>
