@@ -1,0 +1,265 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<link rel='shortcut icon' href='logo.png' type='image/x-icon' />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>How Sakhiraj Grid Bot Works</title>
+
+<meta name="description"
+content="Understand how Sakhiraj Grid Bot manages Grid Trading, DCA, Compounding and Global Exit on KuCoin Spot Market.">
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+<div w3-include-html="header.html"></div>
+
+<div class="container main">
+
+<div class="content">
+
+<div class="card">
+
+<h1>How Sakhiraj Grid Bot Works</h1>
+
+<p>
+
+Sakhiraj Grid Bot is a cloud-based trading platform designed around a single, fixed trading strategy. Instead of providing dozens of settings and indicators, the platform follows predefined rules that focus on disciplined execution, capital management and continuous trading.
+
+</p>
+
+</div>
+
+
+<div class="card">
+
+<h2>One Strategy. No Confusion.</h2>
+
+<p>
+
+Many trading bots provide dozens of settings that often confuse users and lead to inconsistent results. Sakhiraj Grid Bot follows one carefully designed strategy. Every subscriber uses the same trading logic, making the platform simple, consistent and easy to understand.
+
+</p>
+
+</div>
+
+
+<div class="card">
+
+<h2>Step 1 - Automatic Buy</h2>
+
+<p>
+
+When the market price falls by approximately <strong>3%</strong> from the previous buy level, the bot automatically places a new buy order.
+
+</p>
+
+<p>
+
+This creates a Grid + DCA structure without requiring manual intervention.
+
+</p>
+
+</div>
+
+
+<div class="card">
+
+<h2>Step 2 - Regular Profit Booking</h2>
+
+<p>
+
+Each individual buy order targets approximately <strong>4%</strong> profit. Whenever that target is achieved, the corresponding order is sold automatically while the remaining Grid continues running.
+
+</p>
+
+</div>
+
+
+<div class="card">
+
+<h2>Step 3 - Global Exit</h2>
+
+<p>
+
+Sometimes several buy orders remain open together. Instead of waiting for every order to reach its individual target, the bot continuously calculates the combined value of all active positions.
+
+</p>
+
+<p>
+
+Whenever the overall portfolio reaches approximately <strong>3% net profit</strong>, the bot exits all remaining positions together and releases the capital for a fresh trading cycle.
+
+</p>
+
+</div>
+<div class="card">
+
+<h2>Trading Flow</h2>
+
+<div class="flow">
+
+<div class="flow-box">
+<h3>Start</h3>
+<p>Bot Starts Trading</p>
+</div>
+
+<div class="flow-arrow">↓</div>
+
+<div class="flow-box">
+<h3>Buy</h3>
+<p>First Buy Order</p>
+</div>
+
+<div class="flow-arrow">↓</div>
+
+<div class="flow-box">
+<h3>Price Drops 3%</h3>
+<p>Next Buy Order</p>
+</div>
+
+<div class="flow-arrow">↓</div>
+
+<div class="flow-box">
+<h3>Grid + DCA</h3>
+<p>Continue Buying Every 3% Drop</p>
+</div>
+
+<div class="flow-arrow">↓</div>
+
+<div class="flow-box">
+<h3>Regular Sell</h3>
+<p>Individual Orders Sell Around 4% Profit</p>
+</div>
+
+<div class="flow-arrow">↓</div>
+
+<div class="flow-box">
+<h3>Global Profit Check</h3>
+<p>Total Active Holdings Continuously Calculated</p>
+</div>
+
+<div class="flow-arrow">↓</div>
+
+<div class="flow-box highlight">
+<h3>3% Overall Profit</h3>
+<p>Sell All Active Holdings</p>
+</div>
+
+<div class="flow-arrow">↓</div>
+
+<div class="flow-box">
+<h3>Capital Released</h3>
+<p>Funds Become Available Again</p>
+</div>
+
+<div class="flow-arrow">↓</div>
+
+<div class="flow-box">
+<h3>Compounding</h3>
+<p>Increase Order Size When Possible</p>
+</div>
+
+<div class="flow-arrow">↓</div>
+
+<div class="flow-box">
+<h3>New Cycle</h3>
+<p>Trading Starts Again</p>
+</div>
+
+</div>
+
+</div>
+
+<div class="card">
+
+<h2>Designed with Indian Traders in Mind</h2>
+
+<p>
+
+The trading logic has been developed with practical capital management in mind. The Global Exit mechanism helps free locked funds so that trading can continue instead of leaving large balances idle for long periods.
+
+</p>
+
+<p>
+
+The strategy has also been designed keeping the impact of India's crypto TDS system in mind, with the objective of maintaining continuous trading while managing available capital efficiently.
+
+</p>
+
+</div>
+
+
+<div class="card">
+
+<h2>Automatic Compounding</h2>
+
+<p>
+
+As account balance grows, the platform attempts to increase the order size gradually. This allows profits to participate in future trades without requiring manual adjustments.
+
+</p>
+
+</div>
+
+
+<div class="card">
+
+<h2>Cloud-Based Platform</h2>
+
+<ul>
+
+<li>Browser Based Access</li>
+
+<li>No Software Installation</li>
+
+<li>Secure API Connection</li>
+
+<li>Trade History Available Online</li>
+
+<li>Annual Subscription</li>
+
+<li>Regular Platform Updates</li>
+
+</ul>
+
+</div>
+
+
+<div class="card">
+
+<h2>Important Note</h2>
+
+<p>
+
+Crypto markets involve risk. Sakhiraj Grid Bot is an execution platform that follows predefined rules. Profit is never guaranteed, and users should trade only with funds they are prepared to risk.
+
+</p>
+
+</div>
+
+</div>
+
+
+<aside class="sidebar">
+
+<div w3-include-html="sidebar.html"></div>
+
+</aside>
+
+</div>
+
+<div w3-include-html="footer.html"></div>
+
+<script src="w3.js"></script>
+
+</body>
+</html>
+```
