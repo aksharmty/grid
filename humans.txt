@@ -1,0 +1,25 @@
+/* TEAM */
+
+Project: Sakhiraj Grid Bot
+
+Website: https://gridbot.adquash.com/
+
+Developer: Raj Kumar
+
+Platform: Cloud-Based KuCoin Spot Trading
+
+Technology:
+
+HTML
+
+CSS
+
+JavaScript
+
+GitHub Pages
+
+PHP Dashboard
+
+Contact:
+
+https://gridbot.adquash.com/contact.html
