@@ -41,3 +41,37 @@ function includeHTML(callback) {
 }
 
 document.addEventListener("DOMContentLoaded", () => includeHTML());
+document.addEventListener("DOMContentLoaded", () => { includeHTML(initMenu);});
+function initMenu(){
+
+    const btn=document.getElementById("menu-btn");
+
+    const menu=document.getElementById("menu");
+
+    if(btn){
+
+        btn.onclick=function(){
+
+            menu.classList.toggle("show");
+
+        };
+
+    }
+
+    document.querySelectorAll(".dropdown > a").forEach(function(item){
+
+        item.onclick=function(e){
+
+            if(window.innerWidth<=768){
+
+                e.preventDefault();
+
+                this.parentElement.classList.toggle("open");
+
+            }
+
+        };
+
+    });
+
+}
