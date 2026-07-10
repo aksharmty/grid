@@ -1,0 +1,1375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Order | Sakhiraj Grid Bot</title>
+<meta name="description" content="Order Sakhiraj Grid Bot Annual Subscription">
+
+<link rel="stylesheet" href="style.css">
+
+<style>
+
+.order-section{
+    padding:60px 0;
+}
+
+.order-card{
+    max-width:900px;
+    margin:auto;
+    background:#fff;
+    border-radius:15px;
+    box-shadow:0 10px 35px rgba(0,0,0,.08);
+    padding:35px;
+}
+
+.notice-box{
+    background:#fff8e5;
+    border-left:5px solid #f5b301;
+    padding:18px;
+    margin-bottom:30px;
+    border-radius:8px;
+}
+
+.notice-box h3{
+    margin:0 0 10px;
+}
+
+.form-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:20px;
+}
+
+.full{
+    grid-column:1/-1;
+}
+
+.form-group{
+    margin-bottom:20px;
+}
+
+.form-group label{
+    display:block;
+    margin-bottom:8px;
+    font-weight:600;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea{
+    width:100%;
+    padding:13px;
+    border:1px solid #ddd;
+    border-radius:8px;
+    font-size:15px;
+    box-sizing:border-box;
+}
+
+.radio-group{
+    display:flex;
+    gap:25px;
+    margin:20px 0;
+}
+
+.price-box{
+    margin:25px 0;
+    text-align:center;
+    background:#eef8ff;
+    border:2px dashed #0d6efd;
+    border-radius:12px;
+    padding:25px;
+}
+
+.price-box small{
+    display:block;
+    color:#666;
+}
+
+.price-box h2{
+    margin:10px 0;
+    color:#0d6efd;
+    font-size:40px;
+}
+
+.checkbox{
+    display:flex;
+    gap:10px;
+    margin:25px 0;
+}
+
+.btn-submit{
+    width:100%;
+    padding:16px;
+    font-size:18px;
+}
+
+.modal{
+    display:none;
+    position:fixed;
+    left:0;
+    top:0;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,.65);
+    justify-content:center;
+    align-items:center;
+    z-index:9999;
+}
+
+.modal-content{
+    width:95%;
+    max-width:650px;
+    background:#fff;
+    border-radius:12px;
+    padding:30px;
+}
+
+.summary-table{
+    width:100%;
+    border-collapse:collapse;
+    margin:25px 0;
+}
+
+.summary-table td{
+    border-bottom:1px solid #eee;
+    padding:12px;
+}
+
+.summary-table td:first-child{
+    font-weight:bold;
+    width:38%;
+}
+
+.modal-buttons{
+    display:flex;
+    justify-content:flex-end;
+    gap:15px;
+}
+
+.success-box{
+    display:none;
+    max-width:900px;
+    margin:auto;
+    background:#fff;
+    padding:35px;
+    border-radius:15px;
+    box-shadow:0 10px 35px rgba(0,0,0,.08);
+}
+
+.success-box h2{
+    color:#16a34a;
+}
+
+.payment-box{
+    margin-top:25px;
+    background:#eef8ff;
+    padding:20px;
+    border-radius:10px;
+}
+
+.copy-btn{
+    padding:8px 15px;
+    cursor:pointer;
+}
+
+.action-buttons{
+    margin-top:30px;
+    display:flex;
+    gap:15px;
+    flex-wrap:wrap;
+}
+
+@media(max-width:768px){
+
+.form-grid{
+grid-template-columns:1fr;
+}
+
+.radio-group{
+flex-direction:column;
+}
+
+.action-buttons{
+flex-direction:column;
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div w3-include-html="header.html"></div>
+
+<div class="container main">
+
+<div class="content">
+
+<main>
+
+<section class="page-header">
+
+<h1>Place Your Order</h1>
+
+<p>Annual Subscription</p>
+
+</section>
+
+<section class="order-section">
+
+<div class="order-card" id="orderCard">
+
+<div class="notice-box">
+
+<h3>Important Notice</h3>
+
+<p>
+
+Please enter your correct KuCoin UID.
+
+After submitting your order you will receive an Order ID.
+
+</p>
+
+</div>
+
+<form id="orderForm">
+
+<input type="hidden" id="orderid">
+
+<div class="form-grid">
+
+<div class="form-group">
+
+<label>Full Name *</label>
+
+<input type="text" id="fullname" required>
+
+</div>
+
+<div class="form-group">
+
+<label>Email *</label>
+
+<input type="email" id="email" required>
+
+</div>
+
+<div class="form-group">
+
+<label>Mobile *</label>
+
+<input type="text" id="mobile" required>
+
+</div>
+
+<div class="form-group">
+
+<label>Country</label>
+
+<input type="text" id="country" value="India">
+
+</div>
+
+<div class="form-group full">
+
+<label>KuCoin UID *</label>
+
+<input type="text" id="uid" required>
+
+</div>
+
+</div>
+<hr>
+
+<h3>Subscription Type</h3>
+
+<div class="radio-group">
+
+    <label>
+        <input type="radio"
+               name="subscription"
+               value="Referral"
+               checked>
+        Referral
+    </label>
+
+    <label>
+        <input type="radio"
+               name="subscription"
+               value="Standard">
+        Standard
+    </label>
+
+</div>
+
+<div class="form-group">
+
+    <label>Trading Pairs</label>
+
+    <select id="pairs">
+
+        <option value="1">1 Pair</option>
+        <option value="2">2 Pair</option>
+        <option value="3">3 Pair</option>
+        <option value="4">4 Pair</option>
+        <option value="5">5 Pair</option>
+
+    </select>
+
+</div>
+
+<div class="price-box">
+
+    <small>Annual Subscription</small>
+
+    <h2 id="price">₹3,500</h2>
+
+    <p>
+
+        ✔ One Year Subscription<br>
+        ✔ Free Updates<br>
+        ✔ Email Support
+
+    </p>
+
+</div>
+
+<div class="form-group">
+
+    <label>Notes</label>
+
+    <textarea id="notes"
+              rows="4"
+              placeholder="Write anything if required..."></textarea>
+
+</div>
+
+<label class="checkbox">
+
+    <input
+        type="checkbox"
+        id="agree"
+        required>
+
+    <span>
+
+        I agree to the
+        <a href="terms.html" target="_blank">
+            Terms & Conditions
+        </a>
+
+    </span>
+
+</label>
+
+<button
+    type="submit"
+    id="submitBtn"
+    class="btn btn-primary btn-submit">
+
+    Submit Order
+
+</button>
+
+</form>
+
+</div>
+
+<!-- ========================= -->
+<!-- ORDER SUMMARY MODAL -->
+<!-- ========================= -->
+
+<div
+    class="modal"
+    id="confirmModal">
+
+    <div class="modal-content">
+
+        <h2>
+            Confirm Your Order
+        </h2>
+
+        <table class="summary-table">
+
+            <tr>
+
+                <td>Order ID</td>
+
+                <td id="s_orderid"></td>
+
+            </tr>
+
+            <tr>
+
+                <td>Name</td>
+
+                <td id="s_name"></td>
+
+            </tr>
+
+            <tr>
+
+                <td>Email</td>
+
+                <td id="s_email"></td>
+
+            </tr>
+
+            <tr>
+
+                <td>Mobile</td>
+
+                <td id="s_mobile"></td>
+
+            </tr>
+
+            <tr>
+
+                <td>Country</td>
+
+                <td id="s_country"></td>
+
+            </tr>
+
+            <tr>
+
+                <td>KuCoin UID</td>
+
+                <td id="s_uid"></td>
+
+            </tr>
+
+            <tr>
+
+                <td>Subscription</td>
+
+                <td id="s_subscription"></td>
+
+            </tr>
+
+            <tr>
+
+                <td>Trading Pair</td>
+
+                <td id="s_pair"></td>
+
+            </tr>
+
+            <tr>
+
+                <td>Total Amount</td>
+
+                <td id="s_amount"></td>
+
+            </tr>
+
+            <tr>
+
+                <td>Notes</td>
+
+                <td id="s_notes"></td>
+
+            </tr>
+
+        </table>
+
+        <div class="modal-buttons">
+
+            <button
+                type="button"
+                id="editOrder"
+                class="btn">
+
+                Edit
+
+            </button>
+
+            <button
+                type="button"
+                id="confirmOrder"
+                class="btn btn-primary">
+
+                Confirm Order
+
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- ========================= -->
+<!-- SUCCESS SCREEN -->
+<!-- ========================= -->
+
+<div
+    id="successBox"
+    class="success-box">
+
+    <h2>
+
+        ✔ Order Submitted Successfully
+
+    </h2>
+
+    <p>
+
+        Thank you for your order.
+
+    </p>
+
+    <table class="summary-table">
+
+        <tr>
+
+            <td>Order ID</td>
+
+            <td>
+
+                <span id="successOrderId"></span>
+
+                <button
+                    class="copy-btn"
+                    data-copy="successOrderId">
+
+                    Copy
+
+                </button>
+
+            </td>
+
+        </tr>
+
+        <tr>
+
+            <td>Name</td>
+
+            <td id="successName"></td>
+
+        </tr>
+
+        <tr>
+
+            <td>Subscription</td>
+
+            <td id="successSubscription"></td>
+
+        </tr>
+
+        <tr>
+
+            <td>Trading Pair</td>
+
+            <td id="successPair"></td>
+
+        </tr>
+
+        <tr>
+
+            <td>Amount</td>
+
+            <td id="successAmount"></td>
+
+        </tr>
+
+        <tr>
+
+            <td>Payment Status</td>
+
+            <td>
+
+                <strong>
+
+                    Pending
+
+                </strong>
+
+            </td>
+
+        </tr>
+
+    </table>
+
+    <div
+        class="payment-box"
+        id="paymentBox">
+
+        <!-- JS se fill hoga -->
+
+    </div>
+
+    <div class="action-buttons">
+
+        <button
+            id="downloadReceipt"
+            class="btn">
+
+            Download Receipt
+
+        </button>
+
+        <button
+            id="printReceipt"
+            class="btn">
+
+            Print
+
+        </button>
+
+        <button
+            id="whatsappBtn"
+            class="btn btn-primary">
+
+            WhatsApp Confirmation
+
+        </button>
+
+    </div>
+
+</div>
+
+</section>
+
+</main>
+
+</div>
+
+<aside class="sidebar">
+
+<div w3-include-html="sidebar.html"></div>
+
+</aside>
+
+</div>
+
+<div w3-include-html="footer.html"></div>
+
+<script src="w3.js"></script>
+
+<script>
+
+// Part-3 se JavaScript start hoga.
+// ==========================
+// CONFIG
+// ==========================
+
+const pricing = {
+
+    Referral:{
+        1:3500,
+        2:6500,
+        3:9500,
+        4:12500,
+        5:15500
+    },
+
+    Standard:{
+        1:5000,
+        2:8000,
+        3:11000,
+        4:14000,
+        5:17000
+    }
+
+};
+
+//==========================
+// SHORTCUTS
+//==========================
+
+const form=document.getElementById("orderForm");
+
+const modal=document.getElementById("confirmModal");
+
+const priceBox=document.getElementById("price");
+
+const pair=document.getElementById("pairs");
+
+const submitBtn=document.getElementById("submitBtn");
+
+const successBox=document.getElementById("successBox");
+
+
+//==========================
+// PRICE UPDATE
+//==========================
+
+function updatePrice(){
+
+    const subscription=document.querySelector("input[name='subscription']:checked").value;
+
+    const amount=pricing[subscription][pair.value];
+
+    priceBox.innerHTML="₹"+amount.toLocaleString("en-IN");
+
+}
+
+document.querySelectorAll("input[name='subscription']").forEach(function(r){
+
+    r.addEventListener("change",updatePrice);
+
+});
+
+pair.addEventListener("change",updatePrice);
+
+updatePrice();
+
+
+//==========================
+// ORDER ID
+//==========================
+
+function generateOrderId(){
+
+    const name=document.getElementById("fullname").value
+    .replace(/[^a-z]/gi,"")
+    .toUpperCase();
+
+    const first=name.substring(0,3).padEnd(3,"X");
+
+    const d=new Date();
+
+    const yy=String(d.getFullYear()).slice(-2);
+
+    const mm=String(d.getMonth()+1).padStart(2,"0");
+
+    const dd=String(d.getDate()).padStart(2,"0");
+
+    const hh=String(d.getHours()).padStart(2,"0");
+
+    const mi=String(d.getMinutes()).padStart(2,"0");
+
+    const ss=String(d.getSeconds()).padStart(2,"0");
+
+    return "SGB"+yy+mm+dd+hh+mi+ss+first;
+
+}
+
+
+//==========================
+// SUMMARY
+//==========================
+
+form.addEventListener("submit",function(e){
+
+    e.preventDefault();
+
+    if(!document.getElementById("agree").checked){
+
+        alert("Please accept Terms & Conditions.");
+
+        return;
+
+    }
+
+    const id=generateOrderId();
+
+    document.getElementById("orderid").value=id;
+
+    document.getElementById("s_orderid").innerHTML=id;
+
+    document.getElementById("s_name").innerHTML=document.getElementById("fullname").value;
+
+    document.getElementById("s_email").innerHTML=document.getElementById("email").value;
+
+    document.getElementById("s_mobile").innerHTML=document.getElementById("mobile").value;
+
+    document.getElementById("s_country").innerHTML=document.getElementById("country").value;
+
+    document.getElementById("s_uid").innerHTML=document.getElementById("uid").value;
+
+    document.getElementById("s_subscription").innerHTML=document.querySelector("input[name='subscription']:checked").value;
+
+    document.getElementById("s_pair").innerHTML=pair.value+" Pair";
+
+    document.getElementById("s_amount").innerHTML=priceBox.innerHTML;
+
+    document.getElementById("s_notes").innerHTML=document.getElementById("notes").value;
+
+    modal.style.display="flex";
+
+});
+
+
+//==========================
+// EDIT
+//==========================
+
+document.getElementById("editOrder").onclick=function(){
+
+    modal.style.display="none";
+
+};
+
+
+//==========================
+// CONFIRM BUTTON
+//==========================
+
+document.getElementById("confirmOrder").onclick=function(){
+
+    modal.style.display="none";
+
+    submitBtn.disabled=true;
+
+    submitBtn.innerHTML="Submitting...";
+
+    // Part-4
+    // Google Apps Script POST yahan hoga
+
+};
+
+
+//==========================
+// COPY BUTTON
+//==========================
+
+document.addEventListener("click",function(e){
+
+    if(e.target.classList.contains("copy-btn")){
+
+        const id=e.target.dataset.copy;
+
+        navigator.clipboard.writeText(
+
+            document.getElementById(id).innerText
+
+        );
+
+        e.target.innerHTML="Copied";
+
+        setTimeout(function(){
+
+            e.target.innerHTML="Copy";
+
+        },1500);
+
+    }
+
+});
+
+
+//==========================
+// PRINT
+//==========================
+
+document.getElementById("printReceipt").onclick=function(){
+
+    window.print();
+
+};
+
+
+//==========================
+// DOWNLOAD
+//==========================
+
+document.getElementById("downloadReceipt").onclick=function(){
+
+    alert("Receipt Download Part-5");
+
+};
+
+
+//==========================
+// WHATSAPP
+//==========================
+
+document.getElementById("whatsappBtn").onclick=function(){
+
+    const txt=
+
+`Hello,
+
+Order ID : ${document.getElementById("successOrderId").innerHTML}
+
+I have completed the payment.
+
+Please verify.`;
+
+    window.open(
+
+"https://wa.me/919213816442?text="+encodeURIComponent(txt)
+
+    );
+
+};
+</script>
+<script>
+    //=====================================
+// GOOGLE APPS SCRIPT URL
+//=====================================
+
+const API_URL="https://script.google.com/macros/s/AKfycbwC-ykY2LzQVXhuWBrdI4b_pLsqOBb7raDNIgxyZp2NlispNV1EvIzu0SDnh4QF7Ueg/exec";
+
+
+//=====================================
+// SUBMIT ORDER
+//=====================================
+
+async function submitOrder(){
+
+    const btn=document.getElementById("confirmOrder");
+
+    btn.disabled=true;
+
+    btn.innerHTML="Please Wait...";
+
+
+    const data={
+
+        orderid:document.getElementById("orderid").value,
+
+        fullname:document.getElementById("fullname").value,
+
+        email:document.getElementById("email").value,
+
+        mobile:document.getElementById("mobile").value,
+
+        country:document.getElementById("country").value,
+
+        uid:document.getElementById("uid").value,
+
+        subscription:document.querySelector("input[name='subscription']:checked").value,
+
+        pair:pair.value,
+
+        amount:priceBox.innerText.replace(/[₹,]/g,''),
+
+        notes:document.getElementById("notes").value
+
+    };
+
+
+    try{
+
+        const response=await fetch(API_URL,{
+
+            method:"POST",
+
+            body:JSON.stringify(data)
+
+        });
+
+        const result=await response.json();
+
+
+        if(result.status=="success"){
+
+            orderSuccess(data);
+
+        }
+
+        else{
+
+            alert(result.message);
+
+        }
+
+    }
+
+    catch(error){
+
+        alert("Unable to connect server.");
+
+    }
+
+
+    btn.disabled=false;
+
+    btn.innerHTML="Confirm Order";
+
+}
+
+
+
+//=====================================
+// CONFIRM BUTTON
+//=====================================
+
+document.getElementById("confirmOrder").onclick=function(){
+
+    modal.style.display="none";
+
+    submitOrder();
+
+};
+
+
+
+//=====================================
+// SUCCESS SCREEN
+//=====================================
+
+function orderSuccess(data){
+
+    document.getElementById("orderCard").style.display="none";
+
+    successBox.style.display="block";
+
+    document.getElementById("successOrderId").innerHTML=data.orderid;
+
+    document.getElementById("successName").innerHTML=data.fullname;
+
+    document.getElementById("successSubscription").innerHTML=data.subscription;
+
+    document.getElementById("successPair").innerHTML=data.pair+" Pair";
+
+    document.getElementById("successAmount").innerHTML="₹"+Number(data.amount).toLocaleString("en-IN");
+
+
+    paymentDetails(data.country);
+
+}
+
+
+
+//=====================================
+// PAYMENT DETAILS
+//=====================================
+
+function paymentDetails(country){
+
+    let html="";
+
+    if(country.toLowerCase()=="india"){
+
+        html=`
+
+        <h3>UPI Payment</h3>
+
+        <p>
+
+        UPI ID
+
+        <br><br>
+
+        <b id="upiid">
+
+        9213816442@apl
+
+        </b>
+
+        <br><br>
+
+        <button
+
+        class="copy-btn"
+
+        data-copy="upiid">
+
+        Copy UPI
+
+        </button>
+
+        </p>
+
+        `;
+
+    }
+
+    else{
+
+        html=`
+
+        <h3>USDT (TRC20)</h3>
+
+        <p>
+
+        Wallet Address
+
+        <br><br>
+
+        <b id="wallet">
+
+        TVfTeLuN3pehpu5SYZ3iffFsG9gJwAfxC1
+
+        </b>
+
+        <br><br>
+
+        <button
+
+        class="copy-btn"
+
+        data-copy="wallet">
+
+        Copy Address
+
+        </button>
+
+        </p>
+
+        `;
+
+    }
+
+
+    document.getElementById("paymentBox").innerHTML=html;
+
+}
+</script>
+<script>
+    //======================================
+// RECEIPT HTML
+//======================================
+
+function receiptHTML(){
+
+return `
+
+<html>
+
+<head>
+
+<title>Receipt</title>
+
+<style>
+
+body{
+
+font-family:Arial;
+padding:40px;
+color:#222;
+
+}
+
+table{
+
+width:100%;
+border-collapse:collapse;
+margin-top:20px;
+
+}
+
+td{
+
+padding:10px;
+border:1px solid #ddd;
+
+}
+
+h1{
+
+margin-bottom:5px;
+
+}
+
+.status{
+
+color:green;
+font-weight:bold;
+
+}
+
+.footer{
+
+margin-top:35px;
+font-size:14px;
+color:#666;
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<h1>SAKHIRAJ GRID BOT</h1>
+
+Annual Subscription Receipt
+
+<hr>
+
+<table>
+
+<tr>
+
+<td>Order ID</td>
+
+<td>${document.getElementById("successOrderId").innerHTML}</td>
+
+</tr>
+
+<tr>
+
+<td>Name</td>
+
+<td>${document.getElementById("successName").innerHTML}</td>
+
+</tr>
+
+<tr>
+
+<td>Subscription</td>
+
+<td>${document.getElementById("successSubscription").innerHTML}</td>
+
+</tr>
+
+<tr>
+
+<td>Trading Pair</td>
+
+<td>${document.getElementById("successPair").innerHTML}</td>
+
+</tr>
+
+<tr>
+
+<td>Amount</td>
+
+<td>${document.getElementById("successAmount").innerHTML}</td>
+
+</tr>
+
+<tr>
+
+<td>Payment Status</td>
+
+<td class="status">
+
+Pending
+
+</td>
+
+</tr>
+
+</table>
+
+<div class="footer">
+
+Thank you for choosing
+
+<b>Sakhiraj Grid Bot</b>
+
+</div>
+
+</body>
+
+</html>
+
+`;
+
+}
+
+
+
+//======================================
+// PRINT
+//======================================
+
+document.getElementById("printReceipt").onclick=function(){
+
+const w=window.open("","PRINT");
+
+w.document.write(receiptHTML());
+
+w.document.close();
+
+w.focus();
+
+w.print();
+
+w.close();
+
+};
+
+
+
+//======================================
+// DOWNLOAD
+//======================================
+
+document.getElementById("downloadReceipt").onclick=function(){
+
+const blob=new Blob(
+
+[receiptHTML()],
+
+{type:"text/html"}
+
+);
+
+const a=document.createElement("a");
+
+a.href=URL.createObjectURL(blob);
+
+a.download=document.getElementById("successOrderId").innerHTML+".html";
+
+a.click();
+
+};
+
+
+
+
+//======================================
+// WHATSAPP
+//======================================
+
+document.getElementById("whatsappBtn").onclick=function(){
+
+const msg=
+
+`Hello,
+
+Order ID : ${document.getElementById("successOrderId").innerHTML}
+
+Name : ${document.getElementById("successName").innerHTML}
+
+Amount : ${document.getElementById("successAmount").innerHTML}
+
+I have completed the payment.
+
+Please verify my subscription.`;
+
+window.open(
+
+"https://wa.me/919213816442?text="+encodeURIComponent(msg)
+
+);
+
+};
+
+
+
+//======================================
+// COPY BUTTON
+//======================================
+
+document.addEventListener("click",function(e){
+
+if(!e.target.classList.contains("copy-btn"))
+
+return;
+
+const id=e.target.dataset.copy;
+
+navigator.clipboard.writeText(
+
+document.getElementById(id).innerText
+
+);
+
+e.target.innerHTML="Copied";
+
+setTimeout(function(){
+
+e.target.innerHTML="Copy";
+
+},1500);
+
+});
+</script>
+</body>
+
+</html>
