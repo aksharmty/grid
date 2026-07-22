@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4305348743992957"
+     crossorigin="anonymous"></script>
+
+<meta charset="UTF-8">
+<link rel="shortcut icon" href="logo.png" type="image/x-icon" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Trading Strategy | Sakhiraj Grid Bot</title>
+
+<meta name="description" content="Learn how Sakhiraj Grid Bot uses Grid, DCA, Compounding and Global Exit for automated KuCoin Spot Trading.">
+
+<link rel="stylesheet" href="style.css">
+
+<style>
+
+.strategy-box{
+    background:#f8f9fa;
+    border-left:5px solid #0d6efd;
+    padding:20px;
+    margin-bottom:20px;
+}
+
+.strategy-table{
+    width:100%;
+    border-collapse:collapse;
+}
+
+.strategy-table th,
+.strategy-table td{
+    padding:12px;
+    border:1px solid #ddd;
+    text-align:left;
+}
+
+.notice{
+    background:#fff8d6;
+    border:1px solid #f4b400;
+    padding:15px;
+    border-radius:6px;
+    margin-top:20px;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div w3-include-html="header.html"></div>
+
+<div class="container main">
+
+<div class="content">
+
+<div class="card">
+
+<h1>Bot Trading Strategy</h1>
+
+<p>
+
+Sakhiraj Grid Bot follows a predefined <strong>Grid + DCA + Compounding</strong> strategy for KuCoin Spot Trading. Every order is executed automatically according to fixed trading rules. No indicators or manual strategy selection are required.
+
+</p>
+
+</div>
+
+<div class="card">
+
+<h2>1. Initial Buy</h2>
+
+<p>
+
+When the bot starts, it places the first Market Buy.
+
+</p>
+
+<ul>
+
+<li>0.5% of your available KuCoin trading capital.</li>
+
+<li>Minimum order size is <strong>1 USDT</strong>.</li>
+
+<li>The higher value between these two is used.</li>
+
+</ul>
+
+</div>
+
+<div class="card">
+
+<h2>2. Grid Buying</h2>
+
+<p>
+
+After the first purchase, the bot continuously monitors the market.
+
+</p>
+
+<ul>
+
+<li>A new Grid Buy is placed every <strong>1.5% price drop</strong> from the previous buy.</li>
+
+<li>Each new buy amount increases automatically by approximately <strong>0.1% to 0.2%</strong>.</li>
+
+<li>This gradual increase provides automatic compounding over time.</li>
+
+</ul>
+
+<table class="strategy-table">
+
+<tr>
+<th>Buy</th>
+<th>Trigger</th>
+<th>Order Size</th>
+</tr>
+
+<tr>
+<td>Buy 1</td>
+<td>Bot Start</td>
+<td>1.0000 USDT</td>
+</tr>
+
+<tr>
+<td>Buy 2</td>
+<td>-1.5%</td>
+<td>1.0020 USDT</td>
+</tr>
+
+<tr>
+<td>Buy 3</td>
+<td>-3.0%</td>
+<td>1.0040 USDT</td>
+</tr>
+
+<tr>
+<td>Buy 4</td>
+<td>-4.5%</td>
+<td>1.0060 USDT</td>
+</tr>
+
+</table>
+
+</div>
+
+<div class="card">
+
+<h2>3. Automatic DCA Buy</h2>
+
+<p>
+
+Markets do not always fall by exactly 1.5%. During sideways movement, no new Grid Buy may occur.
+
+</p>
+
+<p>
+
+If no Grid Buy is executed for <strong>20 consecutive hours</strong>, the bot automatically places one additional <strong>DCA Buy</strong> at the current market price.
+
+</p>
+
+<ul>
+
+<li>Maintains trading activity.</li>
+
+<li>Improves average entry price.</li>
+
+<li>Keeps capital deployment active.</li>
+
+</ul>
+
+</div>
+
+<div class="card">
+
+<h2>4. Individual Sell</h2>
+
+<p>
+
+Each buy order maintains its own profit target.
+
+</p>
+
+<ul>
+
+<li>The most recent buy (Last Buy Row) is sold first.</li>
+
+<li>Sell orders follow the regular Take Profit settings configured for the bot.</li>
+
+<li>Earlier Grid Buy orders remain active until their conditions are met.</li>
+
+</ul>
+
+</div>
+
+<div class="card">
+
+<h2>5. Global Exit</h2>
+
+<p>
+
+Along with regular individual sells, the bot continuously evaluates the combined performance of all active positions.
+
+</p>
+
+<p>
+
+When the configured <strong>Global Target</strong> is reached, <strong>all remaining active buy orders are sold together</strong> according to your Global Exit settings.
+
+</p>
+
+<ul>
+
+<li>Releases trading capital.</li>
+
+<li>Completes one trading cycle.</li>
+
+<li>Allows the next cycle to begin with fresh capital.</li>
+
+</ul>
+
+</div>
+
+<div class="card">
+
+<h2>Strategy Summary</h2>
+
+<table class="strategy-table">
+
+<tr>
+<th>Feature</th>
+<th>Configuration</th>
+</tr>
+
+<tr>
+<td>Trading Type</td>
+<td>KuCoin Spot Trading</td>
+</tr>
+
+<tr>
+<td>First Buy</td>
+<td>0.5% Capital (Minimum 1 USDT)</td>
+</tr>
+
+<tr>
+<td>Grid Distance</td>
+<td>1.5%</td>
+</tr>
+
+<tr>
+<td>Compounding</td>
+<td>0.1% - 0.2% Per New Buy</td>
+</tr>
+
+<tr>
+<td>DCA Buy</td>
+<td>After 20 Hours Without New Grid Buy</td>
+</tr>
+
+<tr>
+<td>Individual Sell</td>
+<td>Last Buy Row</td>
+</tr>
+
+<tr>
+<td>Portfolio Exit</td>
+<td>Global Target Setting</td>
+</tr>
+
+<tr>
+<td>Indicators</td>
+<td>Not Required</td>
+</tr>
+
+</table>
+
+</div>
+
+<div class="notice">
+
+<strong>Important Notice</strong>
+
+<p>
+
+Sakhiraj Grid Bot follows predefined trading rules and does not guarantee profits. Cryptocurrency markets are highly volatile and involve risk. Users should trade responsibly and invest only what they can afford to keep invested.
+
+</p>
+
+</div>
+
+</div>
+
+<aside class="sidebar">
+
+<div w3-include-html="sidebar.html"></div>
+
+</aside>
+
+</div>
+
+<div w3-include-html="footer.html"></div>
+
+<script src="w3.js"></script>
+
+</body>
+</html>
