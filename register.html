@@ -74,13 +74,13 @@ placeholder="Enter your full name">
 </td>
 </tr>
 
-<tr>
+<!-- tr>
 <td><strong>Username</strong></td>
 <td>
 <input type="text" name="username" required
 placeholder="Choose a username">
 </td>
-</tr>
+</tr -->
 
 <tr>
 <td><strong>Email Address</strong></td>
@@ -130,10 +130,14 @@ placeholder="Confirm password">
 </tr>
 
 <tr>
-<td><strong>Promo Code</strong></td>
+<td><strong>Referral Username</strong></td>
 <td>
-<input type="text" name="promo"
-placeholder="Optional">
+<input
+    type="text"
+    id="referral"
+    name="referral"
+    placeholder="Referral Username"
+    readonly>
 </td>
 </tr>
 
@@ -215,6 +219,31 @@ Already have an account?
 <div w3-include-html="footer.html"></div>
 
 <script src="w3.js"></script>
+<script>
+(function(){
 
+    function getParam(name){
+        const url = new URL(window.location.href);
+        return url.searchParams.get(name);
+    }
+
+    let ref = getParam("ref");
+
+    if(ref){
+        document.cookie =
+            "referral=" + encodeURIComponent(ref) +
+            ";max-age=" + (60*60*24*15) +
+            ";path=/";
+    }
+
+    let match = document.cookie.match(/(?:^|; )referral=([^;]+)/);
+
+    if(match){
+        document.getElementById("referral").value =
+            decodeURIComponent(match[1]);
+    }
+
+})();
+</script>
 </body>
 </html>
