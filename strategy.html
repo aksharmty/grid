@@ -60,84 +60,94 @@
 <h1>Bot Trading Strategy</h1>
 
 <p>
-
-Sakhiraj Grid Bot follows a predefined <strong>Grid + DCA + Compounding</strong> strategy for KuCoin Spot Trading. Every order is executed automatically according to fixed trading rules. No indicators or manual strategy selection are required.
-
+Sakhiraj Grid Bot follows an advanced 
+<strong>Grid + DCA + Compounding + Breakout Entry</strong> 
+strategy for KuCoin Spot Trading. 
+The bot works on predefined rules and automatically manages buy and sell cycles without indicators or manual decision making.
 </p>
 
 </div>
+
 
 <div class="card">
 
 <h2>1. Initial Buy</h2>
 
 <p>
-
-When the bot starts, it places the first Market Buy.
-
+When the bot starts a new trading cycle, it places the first Market Buy.
 </p>
 
 <ul>
-
-<li>0.5% of your available KuCoin trading capital.</li>
-
+<li>Uses <strong>0.5% of available trading capital</strong>.</li>
 <li>Minimum order size is <strong>1 USDT</strong>.</li>
-
 <li>The higher value between these two is used.</li>
-
 </ul>
 
 </div>
 
+
 <div class="card">
 
-<h2>2. Grid Buying</h2>
+<h2>2. Breakout Based Entry</h2>
 
 <p>
-
-After the first purchase, the bot continuously monitors the market.
-
+The bot does not continuously buy in a falling market.
+A new trading cycle starts only after market strength confirmation.
 </p>
 
 <ul>
-
-<li>A new Grid Buy is placed every <strong>1.5% price drop</strong> from the previous buy.</li>
-
-<li>Each new buy amount increases automatically by approximately <strong>0.1% to 0.2%</strong>.</li>
-
-<li>This gradual increase provides automatic compounding over time.</li>
-
+<li>Current <strong>Ask price must break above the previous day's high</strong>.</li>
+<li>After breakout confirmation, the bot starts managing Grid Buy levels.</li>
+<li>This avoids unnecessary early entries during weak market conditions.</li>
 </ul>
+
+</div>
+
+
+<div class="card">
+
+<h2>3. Grid Buying with Compounding</h2>
+
+<p>
+After the first buy, the bot places additional buys when the price moves downward.
+</p>
+
+<ul>
+<li>Minimum Grid distance is <strong>1.5% price drop</strong> from the previous buy.</li>
+<li>Every additional drop activates the next Grid level.</li>
+<li>Buy amount increases automatically using a small compounding multiplier.</li>
+</ul>
+
 
 <table class="strategy-table">
 
 <tr>
 <th>Buy</th>
-<th>Trigger</th>
+<th>Price Movement</th>
 <th>Order Size</th>
 </tr>
 
 <tr>
 <td>Buy 1</td>
-<td>Bot Start</td>
+<td>Breakout Entry</td>
 <td>1.0000 USDT</td>
 </tr>
 
 <tr>
 <td>Buy 2</td>
-<td>-1.5%</td>
+<td>-1.5% Drop</td>
 <td>1.0020 USDT</td>
 </tr>
 
 <tr>
 <td>Buy 3</td>
-<td>-3.0%</td>
+<td>-3.0% Drop</td>
 <td>1.0040 USDT</td>
 </tr>
 
 <tr>
 <td>Buy 4</td>
-<td>-4.5%</td>
+<td>-4.5% Drop</td>
 <td>1.0060 USDT</td>
 </tr>
 
@@ -145,83 +155,66 @@ After the first purchase, the bot continuously monitors the market.
 
 </div>
 
+
 <div class="card">
 
-<h2>3. Automatic DCA Buy</h2>
+<h2>4. Dynamic Capital Management</h2>
 
 <p>
-
-Markets do not always fall by exactly 1.5%. During sideways movement, no new Grid Buy may occur.
-
-</p>
-
-<p>
-
-If no Grid Buy is executed for <strong>20 consecutive hours</strong>, the bot automatically places one additional <strong>DCA Buy</strong> at the current market price.
-
+The bot automatically adjusts capital usage according to market movement.
 </p>
 
 <ul>
-
-<li>Maintains trading activity.</li>
-
-<li>Improves average entry price.</li>
-
-<li>Keeps capital deployment active.</li>
-
+<li>Small drops use smaller additional funds.</li>
+<li>Deeper drops activate more Grid levels.</li>
+<li>The more the price falls, the more capital is gradually deployed.</li>
+<li>Compounding helps increase the order size step by step.</li>
 </ul>
 
 </div>
 
+
 <div class="card">
 
-<h2>4. Individual Sell</h2>
+<h2>5. Individual Sell</h2>
 
 <p>
-
-Each buy order maintains its own profit target.
-
+Each buy position is managed according to the regular Take Profit target.
 </p>
 
 <ul>
-
-<li>The most recent buy (Last Buy Row) is sold first.</li>
-
-<li>Sell orders follow the regular Take Profit settings configured for the bot.</li>
-
-<li>Earlier Grid Buy orders remain active until their conditions are met.</li>
-
+<li>Individual sell target is approximately <strong>3% profit</strong>.</li>
+<li>Completed positions are removed from the active cycle.</li>
+<li>Remaining positions continue until their sell condition is reached.</li>
 </ul>
 
 </div>
 
+
 <div class="card">
 
-<h2>5. Global Exit</h2>
+<h2>6. Global Exit</h2>
 
 <p>
-
-Along with regular individual sells, the bot continuously evaluates the combined performance of all active positions.
-
+The bot continuously monitors the combined performance of all active positions.
 </p>
 
 <p>
-
-When the configured <strong>Global Target</strong> is reached, <strong>all remaining active buy orders are sold together</strong> according to your Global Exit settings.
-
+When the combined portfolio reaches the Global Target, all remaining active buy orders are sold together.
 </p>
 
 <ul>
-
 <li>Releases trading capital.</li>
-
-<li>Completes one trading cycle.</li>
-
-<li>Allows the next cycle to begin with fresh capital.</li>
-
+<li>Completes the current trading cycle.</li>
+<li>Prepares the bot for the next opportunity.</li>
 </ul>
 
+<p>
+<strong>Current Global Exit Target: 2.4% Portfolio Profit</strong>
+</p>
+
 </div>
+
 
 <div class="card">
 
@@ -240,33 +233,43 @@ When the configured <strong>Global Target</strong> is reached, <strong>all remai
 </tr>
 
 <tr>
+<td>Entry Method</td>
+<td>Previous Day High Breakout</td>
+</tr>
+
+<tr>
 <td>First Buy</td>
 <td>0.5% Capital (Minimum 1 USDT)</td>
 </tr>
 
 <tr>
 <td>Grid Distance</td>
-<td>1.5%</td>
+<td>Minimum 1.5% Drop</td>
 </tr>
 
 <tr>
 <td>Compounding</td>
-<td>0.1% - 0.2% Per New Buy</td>
+<td>0.1% - 0.2% Per Grid Level</td>
 </tr>
 
 <tr>
-<td>DCA Buy</td>
-<td>After 20 Hours Without New Grid Buy</td>
+<td>Time Based DCA Buy</td>
+<td>Removed</td>
+</tr>
+
+<tr>
+<td>Capital Usage</td>
+<td>Increases with Deeper Drops</td>
 </tr>
 
 <tr>
 <td>Individual Sell</td>
-<td>Last Buy Row</td>
+<td>Approx. 3% Profit</td>
 </tr>
 
 <tr>
-<td>Portfolio Exit</td>
-<td>Global Target Setting</td>
+<td>Global Exit</td>
+<td>2.4% Portfolio Target</td>
 </tr>
 
 <tr>
@@ -278,18 +281,18 @@ When the configured <strong>Global Target</strong> is reached, <strong>all remai
 
 </div>
 
+
 <div class="notice">
 
 <strong>Important Notice</strong>
 
 <p>
-
-Sakhiraj Grid Bot follows predefined trading rules and does not guarantee profits. Cryptocurrency markets are highly volatile and involve risk. Users should trade responsibly and invest only what they can afford to keep invested.
-
+Sakhiraj Grid Bot follows predefined trading rules and does not guarantee profits.
+Cryptocurrency markets are highly volatile and involve risk.
+Users should trade responsibly and invest only what they can afford to keep invested.
 </p>
 
 </div>
-
 </div>
 
 <aside class="sidebar">
