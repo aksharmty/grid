@@ -60,227 +60,10 @@ Professional KuCoin Spot Grid Trading Bot designed for automated trading, DCA st
 
 </div>
 </footer>
-
-<style>
-#kucoinReferralBar {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    background: #111827;
-    color: #ffffff;
-    z-index: 999999;
-    box-sizing: border-box;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.18);
-    font-family:
-        Arial,
-        Helvetica,
-        sans-serif;
-}
-
-/* Main container */
-.kucoinReferralInner {
-    max-width: 1200px;
-    margin: 0 auto;
-    min-height: 54px;
-    padding: 8px 45px 8px 15px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 14px;
-    box-sizing: border-box;
-}
-/* Text */
-.kucoinReferralText {
-    font-size: 14px;
-    line-height: 1.4;
-    text-align: center;
-}
-/* Highlight ₹5,000 */
-.kucoinReferralText strong {
-    color: #86efac;
-}
-/* Button */
-.kucoinReferralButton {
-    display: inline-block;
-    background: #16a34a;
-    color: #ffffff;
-    text-decoration: none;
-    padding: 8px 16px;
-    border-radius: 5px;
-    font-size: 13px;
-    font-weight: bold;
-    white-space: nowrap;
-    transition: background 0.2s ease;
-}
-.kucoinReferralButton:hover {
-    background: #15803d;
-}
-/* Close button */
-.kucoinReferralClose {
-    position: absolute;
-    right: 12px;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 28px;
-    height: 28px;
-    border: 0;
-    background: transparent;
-    color: #d1d5db;
-    font-size: 23px;
-    line-height: 28px;
-    cursor: pointer;
-    padding: 0;
-}
-.kucoinReferralClose:hover {
-    color: #ffffff;
-}
-
-@media (max-width: 600px) {
-    .kucoinReferralInner {
-        min-height: 64px;
-        padding: 8px 38px 8px 10px;
-        gap: 9px;
-    }
-    .kucoinReferralText {
-        font-size: 12px;
-        line-height: 1.35;
-        text-align: left;
-    }
-    .kucoinReferralButton {
-        padding: 7px 10px;
-        font-size: 11px;
-    }
-    .kucoinReferralClose {
-        right: 6px;
-        font-size: 20px;
-    }
-}
-
-@media (max-width: 380px) {
-    .kucoinReferralInner {
-        min-height: 68px;
-    }
-    .kucoinReferralText {
-        font-size: 11px;
-   }
-    .kucoinReferralButton {
-        padding: 6px 8px;
-        font-size: 10px;
-    }
-}
-</style>
-
-<div id="kucoinReferralBar">
-    <div class="kucoinReferralInner">
-        <div class="kucoinReferralText">
-            🎁 <strong>New to KuCoin?</strong>
-            Join with my referral &amp; get
-            <strong>Sakhiraj Grid Bot Setup for ₹5,000/year.</strong>
-        </div>
-        <a
-            id="kucoinReferralButton"
-            class="kucoinReferralButton"
-            href="https://www.kucoin.com/r/af/r8Y9LBX"
-            target="_blank"
-            rel="noopener noreferrer">
-            Join KuCoin
-        </a>
-    </div>
-    <button
-        type="button"
-        id="kucoinReferralClose"
-        class="kucoinReferralClose"
-        aria-label="Close">
-        ×
-   </button>
-</div>
-<script>
-
-const KUCOIN_DELAY = 8000;
-
-const KUCOIN_SESSION_KEY =
-    "sakhiraj_kucoin_referral_seen";
-
-const kucoinBar =
-    document.getElementById("kucoinReferralBar");
-
-const kucoinClose =
-    document.getElementById("kucoinReferralClose");
-
-const kucoinButton =
-    document.getElementById("kucoinReferralButton");
-
-
-/* Show only once per browser session */
-
-function showKucoinBar() {
-
-    if (sessionStorage.getItem(KUCOIN_SESSION_KEY)) {
-        return;
-    }
-
-    kucoinBar.style.display = "block";
-
-    sessionStorage.setItem(
-        KUCOIN_SESSION_KEY,
-        "1"
-    );
-}
-
-
-/* Close */
-
-function hideKucoinBar() {
-
-    kucoinBar.style.display = "none";
-
-}
-
-
-/* Close button */
-
-kucoinClose.addEventListener(
-    "click",
-    function () {
-
-        hideKucoinBar();
-
-    }
-);
-
-
-/* Referral button */
-
-kucoinButton.addEventListener(
-    "click",
-    function () {
-
-        hideKucoinBar();
-
-    }
-);
-
-
-/* Show after 8 seconds */
-
-setTimeout(
-    function () {
-
-        showKucoinBar();
-
-    },
-    KUCOIN_DELAY
-);
-
-</script>
-
-
-<!-- KuCoin Referral Popup -- >
+<!-- KuCoin Referral Popup -->
 <div id="kucoinPopup" class="kucoin-popup-overlay">
     <div class="kucoin-popup">
-
+<div class="kucoinReferralText">
         <button class="kucoin-popup-close" onclick="closeKucoinPopup()">×</button>
 
         <div class="kucoin-popup-icon">🎁</div>
@@ -292,7 +75,7 @@ setTimeout(
             <strong>Sakhiraj Grid Bot setup for ₹5,000/year</strong>
             instead of ₹10,000/year.
         </p>
-
+<br>
         <a href="https://www.kucoin.com/r/af/r8Y9LBX"
            class="kucoin-popup-button"
            target="_blank"
@@ -308,78 +91,74 @@ setTimeout(
 
     </div>
 </div>
-
+</div>
 
 <style>
 .kucoin-popup-overlay {
     display: none;
     position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
     z-index: 999999;
-    inset: 0;
-    background: rgba(0,0,0,0.60);
-    align-items: center;
-    justify-content: center;
-    padding: 20px;
+    background: #111827;
+    color: #ffffff;
     box-sizing: border-box;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.18);
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 .kucoin-popup {
     position: relative;
     width: 100%;
-    max-width: 430px;
-    background: #ffffff;
-    border-radius: 14px;
-    padding: 30px 25px 25px;
+    max-width: 1200px;
+    min-height: 54px;
+    margin: 0 auto;
+    padding: 8px 50px 8px 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     box-sizing: border-box;
-    text-align: center;
-    box-shadow: 0 15px 50px rgba(0,0,0,0.25);
-    font-family: Arial, Helvetica, sans-serif;
-    animation: kucoinPopupShow 0.25s ease-out;
 }
 
-@keyframes kucoinPopupShow {
-    from {
-        opacity: 0;
-        transform: translateY(15px) scale(0.97);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0) scale(1);
-    }
+.kucoinReferralText {
+    font-size: 17px;
+    line-height: 1.5;
+    text-align: center;
 }
 
 .kucoin-popup-icon {
-    font-size: 38px;
-    margin-bottom: 8px;
+    display: none;
 }
 
 .kucoin-popup h2 {
-    margin: 0 0 12px;
-    font-size: 25px;
-    color: #111827;
+    display: none;
 }
 
 .kucoin-popup p {
-    margin: 0 0 22px;
-    font-size: 16px;
-    line-height: 1.6;
-    color: #444;
+    display: inline;
+    margin: 0;
+    padding: 0;
+    font-size: 17px;
+    line-height: 1.5;
+    color: #ffffff;
 }
 
 .kucoin-popup p strong {
-    color: #15803d;
+    color: #86efac;
 }
 
 .kucoin-popup-button {
-    display: block;
+    display: inline-block;
     background: #16a34a;
     color: #ffffff;
     text-decoration: none;
-    padding: 14px 18px;
-    border-radius: 7px;
-    font-size: 15px;
+    padding: 7px 12px;
+    border-radius: 5px;
+    font-size: 17px;
     font-weight: bold;
-    margin-bottom: 15px;
+    margin-left: 10px;
 }
 
 .kucoin-popup-button:hover {
@@ -387,51 +166,23 @@ setTimeout(
 }
 
 .kucoin-popup-note {
-    font-size: 13px;
-    color: #777;
+    display: inline;
+    margin-left: 8px;
+    font-size: 17px;
+    color: #d1d5db;
 }
 
 .kucoin-popup-note a {
-    color: #2563eb;
+    color: #93c5fd;
     text-decoration: none;
 }
 
-.kucoin-popup-close {
-    position: absolute;
-    top: 8px;
-    right: 12px;
-    width: 32px;
-    height: 32px;
-    border: 0;
-    background: transparent;
-    color: #777;
-    font-size: 28px;
-    line-height: 28px;
-    cursor: pointer;
-}
-
-.kucoin-popup-close:hover {
-    color: #111827;
-}
-
-@media (max-width: 480px) {
+/* Mobile */
+@media (max-width: 600px) {
 
     .kucoin-popup {
-        max-width: 100%;
-        padding: 28px 20px 22px;
-    }
-
-    .kucoin-popup h2 {
-        font-size: 22px;
-    }
-
-    .kucoin-popup p {
-        font-size: 15px;
-    }
-
-    .kucoin-popup-button {
-        font-size: 14px;
-        padding: 13px 12px;
+        min-height: auto;
+        padding: 10px 42px 10px 10px;
     }
 }
 </style>
@@ -449,7 +200,7 @@ setTimeout(
     const lastShown = localStorage.getItem(popupKey);
 
     // 24 hours = 24 * 60 * 60 * 1000 milliseconds
-    const twentyFourHours = 24 * 60 * 60 * 1000;
+    const twentyFourHours = 0 * 0 * 0 * 1000;
 
     if (!lastShown || (now - parseInt(lastShown)) >= twentyFourHours) {
 
@@ -460,7 +211,7 @@ setTimeout(
 
             localStorage.setItem(popupKey, Date.now());
 
-        }, 6000);
+        }, 5000);
 
     }
 
@@ -489,4 +240,3 @@ document.getElementById('kucoinPopup').addEventListener('click', function (e) {
 
 });
 </script>
--->
