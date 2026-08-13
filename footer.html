@@ -60,3 +60,215 @@ Professional KuCoin Spot Grid Trading Bot designed for automated trading, DCA st
 
 </div>
 </footer>
+<!-- KuCoin Referral Popup -->
+<div id="kucoinPopup" class="kucoin-popup-overlay">
+    <div class="kucoin-popup">
+
+        <button class="kucoin-popup-close" onclick="closeKucoinPopup()">×</button>
+
+        <div class="kucoin-popup-icon">🎁</div>
+
+        <h2>New to KuCoin?</h2>
+
+        <p>
+            Join KuCoin with my referral and get
+            <strong>Sakhiraj Grid Bot setup for ₹5,000/year</strong>
+            instead of ₹10,000/year.
+        </p>
+
+        <a href="https://www.kucoin.com/r/af/r8Y9LBX"
+           class="kucoin-popup-button"
+           target="_blank"
+           rel="noopener noreferrer"
+           onclick="closeKucoinPopup()">
+            Join KuCoin &amp; Get ₹5,000 Setup
+        </a>
+
+        <div class="kucoin-popup-note">
+            Already have a KuCoin account?
+            <a href="#" onclick="closeKucoinPopup(); return false;">Close</a>
+        </div>
+
+    </div>
+</div>
+
+
+<style>
+.kucoin-popup-overlay {
+    display: none;
+    position: fixed;
+    z-index: 999999;
+    inset: 0;
+    background: rgba(0,0,0,0.60);
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.kucoin-popup {
+    position: relative;
+    width: 100%;
+    max-width: 430px;
+    background: #ffffff;
+    border-radius: 14px;
+    padding: 30px 25px 25px;
+    box-sizing: border-box;
+    text-align: center;
+    box-shadow: 0 15px 50px rgba(0,0,0,0.25);
+    font-family: Arial, Helvetica, sans-serif;
+    animation: kucoinPopupShow 0.25s ease-out;
+}
+
+@keyframes kucoinPopupShow {
+    from {
+        opacity: 0;
+        transform: translateY(15px) scale(0.97);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+.kucoin-popup-icon {
+    font-size: 38px;
+    margin-bottom: 8px;
+}
+
+.kucoin-popup h2 {
+    margin: 0 0 12px;
+    font-size: 25px;
+    color: #111827;
+}
+
+.kucoin-popup p {
+    margin: 0 0 22px;
+    font-size: 16px;
+    line-height: 1.6;
+    color: #444;
+}
+
+.kucoin-popup p strong {
+    color: #15803d;
+}
+
+.kucoin-popup-button {
+    display: block;
+    background: #16a34a;
+    color: #ffffff;
+    text-decoration: none;
+    padding: 14px 18px;
+    border-radius: 7px;
+    font-size: 15px;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.kucoin-popup-button:hover {
+    background: #15803d;
+}
+
+.kucoin-popup-note {
+    font-size: 13px;
+    color: #777;
+}
+
+.kucoin-popup-note a {
+    color: #2563eb;
+    text-decoration: none;
+}
+
+.kucoin-popup-close {
+    position: absolute;
+    top: 8px;
+    right: 12px;
+    width: 32px;
+    height: 32px;
+    border: 0;
+    background: transparent;
+    color: #777;
+    font-size: 28px;
+    line-height: 28px;
+    cursor: pointer;
+}
+
+.kucoin-popup-close:hover {
+    color: #111827;
+}
+
+@media (max-width: 480px) {
+
+    .kucoin-popup {
+        max-width: 100%;
+        padding: 28px 20px 22px;
+    }
+
+    .kucoin-popup h2 {
+        font-size: 22px;
+    }
+
+    .kucoin-popup p {
+        font-size: 15px;
+    }
+
+    .kucoin-popup-button {
+        font-size: 14px;
+        padding: 13px 12px;
+    }
+}
+</style>
+
+
+<script>
+(function () {
+
+    const popup = document.getElementById('kucoinPopup');
+
+    const popupKey = 'kucoin_referral_popup_time';
+
+    const now = Date.now();
+
+    const lastShown = localStorage.getItem(popupKey);
+
+    // 24 hours = 24 * 60 * 60 * 1000 milliseconds
+    const twentyFourHours = 24 * 60 * 60 * 1000;
+
+    if (!lastShown || (now - parseInt(lastShown)) >= twentyFourHours) {
+
+        // Small delay so visitor sees the page first
+        setTimeout(function () {
+
+            popup.style.display = 'flex';
+
+            localStorage.setItem(popupKey, Date.now());
+
+        }, 6000);
+
+    }
+
+})();
+
+
+function closeKucoinPopup() {
+
+    const popup = document.getElementById('kucoinPopup');
+
+    popup.style.display = 'none';
+
+    localStorage.setItem(
+        'kucoin_referral_popup_time',
+        Date.now()
+    );
+}
+
+
+// Close when clicking outside the popup
+document.getElementById('kucoinPopup').addEventListener('click', function (e) {
+
+    if (e.target === this) {
+        closeKucoinPopup();
+    }
+
+});
+</script>
