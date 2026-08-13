@@ -64,12 +64,8 @@ Professional KuCoin Spot Grid Trading Bot designed for automated trading, DCA st
 <div id="kucoinPopup" class="kucoin-popup-overlay">
     <div class="kucoin-popup">
 <div class="kucoinReferralText">
-        <button class="kucoin-popup-close" onclick="closeKucoinPopup()">×</button>
-
         <div class="kucoin-popup-icon">🎁</div>
-
         <h2>New to KuCoin?</h2>
-
         <p>
             Join KuCoin with my referral and get
             <strong>Sakhiraj Grid Bot setup for ₹5,000/year</strong>
@@ -179,7 +175,20 @@ Professional KuCoin Spot Grid Trading Bot designed for automated trading, DCA st
 
 /* Mobile */
 @media (max-width: 600px) {
-
+.kucoin-popup-overlay {
+    display: none;
+    position: fixed;
+    top: 80;
+    left: 0;
+    right: 0;
+    width: 100%;
+    z-index: 999999;
+    background: #111827;
+    color: #ffffff;
+    box-sizing: border-box;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.18);
+    font-family: Arial, Helvetica, sans-serif;
+}
     .kucoin-popup {
         min-height: auto;
         padding: 10px 42px 10px 10px;
@@ -200,7 +209,7 @@ Professional KuCoin Spot Grid Trading Bot designed for automated trading, DCA st
     const lastShown = localStorage.getItem(popupKey);
 
     // 24 hours = 24 * 60 * 60 * 1000 milliseconds
-    const twentyFourHours = 0 * 0 * 0 * 1000;
+    const twentyFourHours = 1 * 60 * 60 * 1000;
 
     if (!lastShown || (now - parseInt(lastShown)) >= twentyFourHours) {
 
