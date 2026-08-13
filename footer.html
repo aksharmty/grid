@@ -60,7 +60,222 @@ Professional KuCoin Spot Grid Trading Bot designed for automated trading, DCA st
 
 </div>
 </footer>
-<!-- KuCoin Referral Popup -->
+
+<style>
+#kucoinReferralBar {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: #111827;
+    color: #ffffff;
+    z-index: 999999;
+    box-sizing: border-box;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.18);
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+}
+
+/* Main container */
+.kucoinReferralInner {
+    max-width: 1200px;
+    margin: 0 auto;
+    min-height: 54px;
+    padding: 8px 45px 8px 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    box-sizing: border-box;
+}
+/* Text */
+.kucoinReferralText {
+    font-size: 14px;
+    line-height: 1.4;
+    text-align: center;
+}
+/* Highlight ₹5,000 */
+.kucoinReferralText strong {
+    color: #86efac;
+}
+/* Button */
+.kucoinReferralButton {
+    display: inline-block;
+    background: #16a34a;
+    color: #ffffff;
+    text-decoration: none;
+    padding: 8px 16px;
+    border-radius: 5px;
+    font-size: 13px;
+    font-weight: bold;
+    white-space: nowrap;
+    transition: background 0.2s ease;
+}
+.kucoinReferralButton:hover {
+    background: #15803d;
+}
+/* Close button */
+.kucoinReferralClose {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 28px;
+    height: 28px;
+    border: 0;
+    background: transparent;
+    color: #d1d5db;
+    font-size: 23px;
+    line-height: 28px;
+    cursor: pointer;
+    padding: 0;
+}
+.kucoinReferralClose:hover {
+    color: #ffffff;
+}
+
+@media (max-width: 600px) {
+    .kucoinReferralInner {
+        min-height: 64px;
+        padding: 8px 38px 8px 10px;
+        gap: 9px;
+    }
+    .kucoinReferralText {
+        font-size: 12px;
+        line-height: 1.35;
+        text-align: left;
+    }
+    .kucoinReferralButton {
+        padding: 7px 10px;
+        font-size: 11px;
+    }
+    .kucoinReferralClose {
+        right: 6px;
+        font-size: 20px;
+    }
+}
+
+@media (max-width: 380px) {
+    .kucoinReferralInner {
+        min-height: 68px;
+    }
+    .kucoinReferralText {
+        font-size: 11px;
+   }
+    .kucoinReferralButton {
+        padding: 6px 8px;
+        font-size: 10px;
+    }
+}
+</style>
+
+<div id="kucoinReferralBar">
+    <div class="kucoinReferralInner">
+        <div class="kucoinReferralText">
+            🎁 <strong>New to KuCoin?</strong>
+            Join with my referral &amp; get
+            <strong>Sakhiraj Grid Bot Setup for ₹5,000/year.</strong>
+        </div>
+        <a
+            id="kucoinReferralButton"
+            class="kucoinReferralButton"
+            href="https://www.kucoin.com/r/af/r8Y9LBX"
+            target="_blank"
+            rel="noopener noreferrer">
+            Join KuCoin
+        </a>
+    </div>
+    <button
+        type="button"
+        id="kucoinReferralClose"
+        class="kucoinReferralClose"
+        aria-label="Close">
+        ×
+   </button>
+</div>
+<script>
+
+const KUCOIN_DELAY = 8000;
+
+const KUCOIN_SESSION_KEY =
+    "sakhiraj_kucoin_referral_seen";
+
+const kucoinBar =
+    document.getElementById("kucoinReferralBar");
+
+const kucoinClose =
+    document.getElementById("kucoinReferralClose");
+
+const kucoinButton =
+    document.getElementById("kucoinReferralButton");
+
+
+/* Show only once per browser session */
+
+function showKucoinBar() {
+
+    if (sessionStorage.getItem(KUCOIN_SESSION_KEY)) {
+        return;
+    }
+
+    kucoinBar.style.display = "block";
+
+    sessionStorage.setItem(
+        KUCOIN_SESSION_KEY,
+        "1"
+    );
+}
+
+
+/* Close */
+
+function hideKucoinBar() {
+
+    kucoinBar.style.display = "none";
+
+}
+
+
+/* Close button */
+
+kucoinClose.addEventListener(
+    "click",
+    function () {
+
+        hideKucoinBar();
+
+    }
+);
+
+
+/* Referral button */
+
+kucoinButton.addEventListener(
+    "click",
+    function () {
+
+        hideKucoinBar();
+
+    }
+);
+
+
+/* Show after 8 seconds */
+
+setTimeout(
+    function () {
+
+        showKucoinBar();
+
+    },
+    KUCOIN_DELAY
+);
+
+</script>
+<!-- KuCoin Referral Popup -- >
 <div id="kucoinPopup" class="kucoin-popup-overlay">
     <div class="kucoin-popup">
 
@@ -272,3 +487,4 @@ document.getElementById('kucoinPopup').addEventListener('click', function (e) {
 
 });
 </script>
+-->
