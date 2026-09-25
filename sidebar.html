@@ -2,15 +2,63 @@
 <hr style="height:1px;width:100%;color:#000000;">
 <iframe data-aa='2446783' src='//ad.a-ads.com/2446783/?size=320x50' style='border:0; padding:0; width:320px; height:50px; overflow:hidden;display: block;margin: auto'></iframe>
 <hr style="height:1px;width:100%;color:#000000;">
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4305348743992957"
+<!-- INNER PAGE ONLY -->
+<div id="adInner" style="display:none"></div>
+
+<script>
+(function(){
+
+  var isHome =
+    path === "/features.html" ||
+    path.endsWith("features.html");
+
+  var hasQuery = location.search.length > 0;
+
+  if (isHome) {
+    document.getElementById("adHome").style.display = "block";
+    return;
+  }
+
+  // clean inner pages only
+  if (!hasQuery) {
+
+    var box = document.getElementById("adInner");
+    box.style.display = "block";
+
+    // create adsense script
+    var s = document.createElement("script");
+    s.async = true;
+    s.src =
+      "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4305348743992957";
+    s.crossOrigin = "anonymous";
+    document.head.appendChild(s);
+
+    // ad container
+    var ins = document.createElement("ins");
+    ins.className = "adsbygoogle";
+    ins.style.display = "inline-block";
+    ins.style.width = "300px";
+    ins.style.height = "250px";
+    ins.setAttribute("data-ad-client", "ca-pub-4305348743992957");
+    ins.setAttribute("data-ad-slot", "3614194127");
+    box.appendChild(ins);
+
+    s.onload = function () {
+      (window.adsbygoogle = window.adsbygoogle || []).push({});
+    };
+  }
+
+})();
+</script>
+<!-- script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4305348743992957"
      crossorigin="anonymous"></script>
-<!-- 300 -->
+<!-- 300 -- >
 <ins class="adsbygoogle"
      style="display:inline-block;width:300px;height:250px"
      data-ad-client="ca-pub-4305348743992957"
      data-ad-slot="3614194127"></ins>
 <script>
      (adsbygoogle = window.adsbygoogle || []).push({});
-</script>
+</script -->
 <hr style="height:1px;width:100%;color:#000000;">
 <a href="https://aksharmty.adquash.com/manifestation.html" target="_blank"><img src="https://aksharmty.adquash.com/manifest.png"  style="width:300px;"/></a>
