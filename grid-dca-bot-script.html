@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Explore the Sakhiraj KuCoin Spot GRID + DCA trading bot. PHP script with regular grid trading, dynamic DCA, 0.2% lot-size compounding, and customer-managed hosting. One-time price: $150.">
+  <meta name="robots" content="index,follow,max-image-preview:large">
+  <meta name="author" content="Raj Kumar">
+  <meta name="theme-color" content="#071321">
+  <link rel="canonical" href="https://gridbot.adquash.com/grid-dca-bot-script.html">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Sakhiraj GRID + DCA Bot for KuCoin Spot | $150 One-Time">
+  <meta property="og:description" content="Customer-operated PHP GRID + DCA trading bot with dynamic DCA and 0.2% lot-size compounding.">
+  <meta property="og:url" content="https://gridbot.adquash.com/grid-dca-bot-script.html">
+  <meta property="og:site_name" content="Sakhiraj GRID + DCA Bot">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Sakhiraj GRID + DCA Bot for KuCoin Spot">
+  <meta name="twitter:description" content="Regular GRID, dynamic DCA and automatic 0.2% lot-size compounding. One-time software price: $150.">
+  <title>Sakhiraj KuCoin GRID + DCA Bot | PHP Trading Script – $150</title>
+
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Sakhiraj GRID + DCA Bot",
+    "applicationCategory": "FinanceApplication",
+    "operatingSystem": "Linux or Windows hosting environment with PHP, cURL, MySQL and Cron Job support",
+    "description": "Customer-operated PHP software for KuCoin Spot trading using regular GRID trading, dynamic DCA buying and automatic 0.2% lot-size compounding.",
+    "offers": {"@type": "Offer", "price": "150", "priceCurrency": "USD", "description": "One-time software purchase. Hosting and trading capital are separate."},
+    "author": {"@type": "Person", "name": "Raj Kumar"}
+  }
+  </script>
+
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org", "@type": "FAQPage",
+    "mainEntity": [
+      {"@type":"Question","name":"What is a KuCoin GRID + DCA bot?","acceptedAnswer":{"@type":"Answer","text":"It is customer-operated trading software that combines regular grid buy and sell orders with a dynamic dollar-cost-averaging process on KuCoin Spot."}},
+      {"@type":"Question","name":"Can the bot start at the current market price?","acceptedAnswer":{"@type":"Answer","text":"Yes. The strategy is designed to start from the current market price, with an initial buy lot of 1 USDT, subject to exchange order requirements."}},
+      {"@type":"Question","name":"How does 0.2% compounding work?","acceptedAnswer":{"@type":"Answer","text":"After each successful regular, DCA or global sell, the next trading lot size increases by 0.2% over the previous lot size."}},
+      {"@type":"Question","name":"What is the starting capital?","acceptedAnswer":{"@type":"Answer","text":"The stated starting capital reference is 150 USDT per trading pair. Actual capital needs depend on market conditions and DCA activity."}},
+      {"@type":"Question","name":"Does the bot need an activation key?","acceptedAnswer":{"@type":"Answer","text":"No developer-side activation key or licence-key verification is required. The purchased script can be installed on multiple supported hosting environments."}},
+      {"@type":"Question","name":"Where can the bot be hosted?","acceptedAnswer":{"@type":"Answer","text":"It can run on supported shared hosting or a VPS with PHP, cURL, MySQL and Cron Job support, provided the host permits KuCoin API trading requests."}}
+    ]
+  }
+  </script>
+
+  <!-- Google AdSense: replace ca-pub-XXXXXXXXXXXXXXXX and data-ad-slot with your approved IDs.
+       Add the AdSense loader script supplied by Google after your account/site is approved. -->
+
+  <style>
+    :root {
+      --bg: #071321;
+      --panel: #102338;
+      --panel2: #132d43;
+      --text: #f4f8fc;
+      --muted: #b8c7d5;
+      --green: #38d996;
+      --gold: #ffd166;
+      --line: rgba(255,255,255,.12);
+      --blue: #1c9be8;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background: linear-gradient(180deg, #071321 0%, #0a1c2d 55%, #071321 100%);
+      color: var(--text);
+      font: 16px/1.65 Arial, Helvetica, sans-serif;
+    }
+    a { color: inherit; }
+    .wrap { width: min(1100px, 92%); margin: auto; }
+    .hero { padding: 62px 0 42px; text-align: center; }
+    .eyebrow {
+      display: inline-block; padding: 6px 13px; border: 1px solid rgba(56,217,150,.45);
+      border-radius: 30px; color: var(--green); font-size: 13px; letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+    h1 { margin: 18px 0 8px; font-size: clamp(34px, 6vw, 62px); line-height: 1.08; }
+    h1 .arrow { color: var(--green); }
+    .subhead { color: var(--gold); font-size: clamp(18px, 3vw, 25px); font-weight: bold; }
+    .hero p { max-width: 760px; margin: 16px auto; color: var(--muted); }
+    .btn {
+      display: inline-block; margin: 12px 6px 0; padding: 13px 23px; border-radius: 8px;
+      background: var(--green); color: #062018; font-weight: bold; text-decoration: none;
+    }
+    .btn.secondary { background: transparent; color: var(--text); border: 1px solid var(--line); }
+    .notice { color: #aebdca; font-size: 12px; margin-top: 14px !important; }
+    .ad-wrap { padding: 12px 0 28px; }
+    .ad-label { color: #91a3b3; font-size: 11px; text-align: center; margin-bottom: 5px; }
+    .ad-slot {
+      min-height: 100px; display: flex; align-items: center; justify-content: center;
+      border: 1px dashed rgba(255,255,255,.22); border-radius: 8px;
+      color: #8295a6; background: rgba(255,255,255,.025); text-align: center; padding: 12px;
+    }
+    section { padding: 42px 0; }
+    h2 { font-size: clamp(25px, 4vw, 36px); line-height: 1.2; margin: 0 0 12px; }
+    .intro { color: var(--muted); max-width: 780px; margin: 0 0 25px; }
+    .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    .card {
+      background: linear-gradient(145deg, var(--panel), var(--panel2));
+      border: 1px solid var(--line); border-radius: 13px; padding: 21px;
+    }
+    .card h3 { margin: 0 0 8px; color: var(--gold); font-size: 19px; }
+    .card p, .card li { color: var(--muted); }
+    ul, ol { padding-left: 21px; }
+    li { margin: 7px 0; }
+    .steps { counter-reset: step; }
+    .steps li { margin: 12px 0; }
+    .price-box {
+      max-width: 760px; margin: auto; text-align: center; padding: 30px;
+      border: 1px solid rgba(56,217,150,.4); border-radius: 16px;
+      background: linear-gradient(145deg, #102b38, #102338);
+    }
+    .price { font-size: clamp(38px, 7vw, 58px); color: var(--green); font-weight: 800; line-height: 1.2; }
+    .price-note { color: var(--muted); }
+    .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+    .risk { border-left: 4px solid var(--gold); padding: 18px 20px; background: rgba(255,209,102,.07); border-radius: 7px; }
+    .risk p, .risk li { color: #d4dce4; }
+    footer { border-top: 1px solid var(--line); padding: 28px 0 42px; color: var(--muted); text-align: center; }
+    footer strong { color: var(--text); }
+    .small { font-size: 13px; color: var(--muted); }
+    @media (max-width: 760px) {
+      .grid, .two-col { grid-template-columns: 1fr; }
+      .hero { padding-top: 44px; }
+      section { padding: 32px 0; }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="hero">
+    <div class="wrap">
+      <span class="eyebrow">Customer-operated KuCoin Spot GRID + DCA Trading Software</span>
+      <h1>250 USDT <span class="arrow">→</span> 10K USDT*</h1>
+      <div class="subhead">10-Year GRID + DCA Bot Strategy</div>
+      <p>
+        A long-term trading approach combining regular GRID orders, dynamic DCA buying
+        and automatic lot-size compounding. Run the PHP script on your own supported
+        hosting or VPS and trade through your own KuCoin account.
+      </p>
+      <a class="btn" href="https://wa.me/919213816442?text=Hello%20Raj%20Kumar%2C%20I%20am%20interested%20in%20the%20Sakhiraj%20GRID%20%2B%20DCA%20Bot.">Discuss on WhatsApp</a>
+      <a class="btn secondary" href="#how-it-works">Explore the Strategy</a>
+      <p class="notice">*Actual results may vary depending on market conditions. The 10K USDT figure is a long-term target, not a promised outcome.</p>
+    </div>
+  </header>
+
+  <div class="wrap ad-wrap">
+    <div class="ad-label">ADVERTISEMENT</div>
+    <div class="ad-slot">
+      <!-- BEGIN AADS AD UNIT 2446782 -->
+
+<div id="frame" style="width: 100%;margin: auto;position: relative; z-index: 99998;">
+          <iframe data-aa='2446782' src='//acceptable.a-ads.com/2446782/?size=Adaptive'
+                            style='border:0; padding:0; width:99%; height:auto; overflow:hidden;display: block;margin: auto'></iframe>
+        </div>
+
+<!-- END AADS AD UNIT 2446782 -->
+    </div>
+  </div>
+
+  <main>
+    <section>
+      <div class="wrap">
+        <h2>What Makes This GRID + DCA Bot Different?</h2>
+        <p class="intro">
+          The bot is designed to combine regular grid trading with a dynamic DCA process.
+          It can start from the current market price rather than requiring a fixed starting
+          price range.
+        </p>
+        <div class="grid">
+          <article class="card">
+            <h3>Start at Current Price</h3>
+            <p>Start the grid from the market price when you activate the bot. The initial buy order is 1 USDT.</p>
+          </article>
+          <article class="card">
+            <h3>Regular GRID Sell</h3>
+            <p>A regular grid buy is assigned a sell target 4% above its buy price, subject to execution and market conditions.</p>
+          </article>
+          <article class="card">
+            <h3>Dynamic DCA</h3>
+            <p>When the market drops, the next DCA level and lot size are determined using the cumulative price drop after the previous buy.</p>
+          </article>
+          <article class="card">
+            <h3>Wait-for-Recovery Buy</h3>
+            <p>The bot waits while the Ask Price is not above the previous day's high. When the Ask Price rises above that high, it can place the next DCA buy.</p>
+          </article>
+          <article class="card">
+            <h3>Single or Global Sell</h3>
+            <p>DCA positions can be sold at the configured target: 4% above the last buy price, or the 3% global target for the complete grid, according to the strategy rules.</p>
+          </article>
+          <article class="card">
+            <h3>0.2% Lot-Size Compounding</h3>
+            <p>After every successful sell—regular single sell, DCA sell or global grid sell—the next trading lot size increases by 0.2% over the previous lot size.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="how-it-works">
+      <div class="wrap">
+        <h2>How the Trading Strategy Works</h2>
+        <p class="intro">A simplified overview of the bot's operating logic.</p>
+        <div class="two-col">
+          <div class="card">
+            <h3>Regular GRID Cycle</h3>
+            <ol>
+              <li>The bot starts at the current market price.</li>
+              <li>It places the initial buy using a 1 USDT lot.</li>
+              <li>A sell target is set 4% above that buy price.</li>
+              <li>After a successful sell, the next lot size increases by 0.2%.</li>
+            </ol>
+          </div>
+          <div class="card">
+            <h3>Dynamic DCA Cycle</h3>
+            <ol>
+              <li>The bot tracks the price drop after the previous buy.</li>
+              <li>The cumulative drop determines the next DCA level and lot size.</li>
+              <li>It waits until the Ask Price moves above the previous day's high before making the next DCA buy.</li>
+              <li>DCA and global sell rules are applied as configured.</li>
+              <li>Every successful sell triggers the 0.2% increase in the next lot size.</li>
+            </ol>
+          </div>
+        </div>
+        <p class="small">Order placement, fills, fees, minimum order sizes and available balance can affect actual execution and results.</p>
+      </div>
+    </section>
+
+    <section>
+      <div class="wrap">
+        <h2>Capital Requirement</h2>
+        <div class="card">
+          <div class="price">250 USDT</div>
+          <h3>Starting capital per trading pair</h3>
+          <ul>
+            <li>Deposit the trading capital into your own KuCoin account.</li>
+            <li>The 150 USDT is separate from the software purchase price.</li>
+            <li>The required capital may need to be higher depending on the selected pair, market movement and DCA activity.</li>
+            <li>Trading capital remains in your exchange account; it is not paid to the software developer.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="wrap">
+        <h2>Technical Requirements</h2>
+        <div class="grid">
+          <article class="card"><h3>PHP</h3><p>PHP-based application for automated trading operations.</p></article>
+          <article class="card"><h3>cURL</h3><p>API communication with the KuCoin exchange.</p></article>
+          <article class="card"><h3>MySQL</h3><p>Database for bot settings and trading records.</p></article>
+          <article class="card"><h3>Cron Job</h3><p>Scheduled execution to run the bot automatically.</p></article>
+          <article class="card"><h3>Shared Hosting or VPS</h3><p>Can run on supported shared hosting or a VPS, subject to provider restrictions and server configuration.</p></article>
+          <article class="card"><h3>KuCoin Spot API</h3><p>Your own KuCoin account and API credentials are used. Withdrawal permission is not required by the bot.</p></article>
+        </div>
+        <p class="small">Before purchasing, confirm that your hosting provider permits automated API trading requests and supports the required PHP, cURL, MySQL and Cron Job configuration.</p>
+      </div>
+    </section>
+
+    <section>
+      <div class="wrap">
+        <h2>Software Purchase</h2>
+        <div class="price-box">
+          <div class="eyebrow">One-time software price</div>
+          <div class="price">$150</div>
+          <p class="price-note">One-time payment · No recurring software subscription</p>
+          <ul style="display:inline-block;text-align:left">
+            <li>PHP GRID + DCA Bot script</li>
+            <li>One-time initial installation and setup support</li>
+            <li>Guidance for API, database and Cron Job configuration</li>
+            <li>No activation key or developer-side licence-key verification</li>
+            <li>May be installed on multiple supported hosting environments</li>
+          </ul>
+          <p class="small">Hosting, VPS, exchange fees and trading capital are not included. The purchase is non-refundable.</p>
+          <a class="btn" href="https://wa.me/919213816442?text=Hello%20Raj%20Kumar%2C%20I%20would%20like%20to%20discuss%20purchasing%20the%20GRID%20%2B%20DCA%20Bot%20for%20%24100.">Contact Raj Kumar on WhatsApp</a>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="wrap">
+        <h2>How to Purchase and Receive the Script</h2>
+        <div class="card">
+          <ol class="steps">
+            <li>Contact Raj Kumar on WhatsApp and discuss the software and your hosting setup.</li>
+            <li>Review the requirements, features, limitations and purchase terms.</li>
+            <li>Payment is made only after the deal is finalised.</li>
+            <li>After payment confirmation, the script is delivered by email or Google Drive.</li>
+            <li>One-time initial installation and setup support is provided as agreed.</li>
+          </ol>
+          <a class="btn" href="https://wa.me/919213816442?text=Hello%20Raj%20Kumar%2C%20please%20share%20more%20details%20about%20the%20GRID%20%2B%20DCA%20Bot.">WhatsApp: +91 92138 16442</a>
+        </div>
+      </div>
+    </section>
+
+
+    <section>
+      <div class="wrap">
+        <h2>Frequently Asked Questions</h2>
+        <div class="grid">
+          <article class="card"><h3>What is a KuCoin GRID + DCA bot?</h3><p>It is customer-operated trading software that combines regular grid buy and sell orders with a dynamic dollar-cost-averaging process on KuCoin Spot.</p></article>
+          <article class="card"><h3>Can the bot start at the current market price?</h3><p>Yes. The strategy is designed to start from the current market price, with an initial buy lot of 1 USDT, subject to exchange order requirements.</p></article>
+          <article class="card"><h3>How does 0.2% compounding work?</h3><p>After each successful regular, DCA or global sell, the next trading lot size increases by 0.2% over the previous lot size.</p></article>
+          <article class="card"><h3>What is the starting capital?</h3><p>The stated starting capital reference is 150 USDT per trading pair. Actual capital needs depend on market conditions and DCA activity.</p></article>
+          <article class="card"><h3>Does the bot need an activation key?</h3><p>No developer-side activation key or licence-key verification is required. The purchased script can be installed on multiple supported hosting environments.</p></article>
+          <article class="card"><h3>Where can the bot be hosted?</h3><p>It can run on supported shared hosting or a VPS with PHP, cURL, MySQL and Cron Job support, provided the host permits KuCoin API trading requests.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="wrap">
+        <h2>Important Risk Disclosure</h2>
+        <div class="risk">
+          <p>This software is a technical tool for customer-operated trading. It does not provide investment advice, manage customer funds or guarantee profits.</p>
+          <ul>
+            <li>Crypto markets are volatile. Actual results may be higher or lower than any illustrative target, and losses are possible.</li>
+            <li>During a prolonged market decline, DCA may use more available balance and funds may remain tied up for an extended period.</li>
+            <li>150 USDT is a starting capital reference per pair, not a guarantee that the bot can handle every market condition with that amount.</li>
+            <li>API limits, exchange outages, hosting restrictions, network issues, order execution, liquidity and trading fees can affect performance.</li>
+            <li>Use only funds you can afford to put at risk. Review the bot and exchange terms before trading.</li>
+          </ul>
+          <p>There is no guaranteed return, including the 10K USDT long-term target shown on this page.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <strong>Sakhiraj GRID + DCA Bot</strong><br>
+      Contact: Raj Kumar · <a href="https://wa.me/919213816442">WhatsApp +91 92138 16442</a>
+      <p class="small">Independent third-party software. KuCoin is an exchange platform; this software is not represented as being endorsed by or affiliated with KuCoin.</p>
+    </div>
+  </footer>
+
+</body>
+</html>
