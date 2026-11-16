@@ -1,0 +1,1154 @@
+<!DOCTYPE html><!-- 570 line 0.7 -->
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel='shortcut icon' href='logo.png' type='image/x-icon' />
+<title>Crypto Grid DCA Calculator India | Crypto Compounding & TDS Refund Tool</title>
+<meta name="description" content="Advanced Crypto DCA Tax Calculator for India. Calculate crypto profit, TDS, tax refund, compounding growth, next buy amount and zero additional tax strategy.">
+
+<meta name="keywords" content="crypto tax calculator india, crypto tds calculator, dca calculator india, kucoin calculator, crypto compounding calculator, crypto tax refund india, bitcoin profit calculator, crypto trading calculator">
+
+<meta name="author" content="Adquash">
+
+<meta property="og:title" content="Advanced Crypto Grid DCA profit Calculator">
+
+<meta property="og:description" content="Calculate crypto profit, TDS, tax refund, compounding growth and DCA strategy.">
+
+<meta property="og:type" content="website">
+
+<meta property="og:image" content="logo.png">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://gridbot.adquash.com/crypto-compounding.html">    
+<style>
+
+body{
+    font-family:Arial;
+    background:#fff;
+    color:#111;
+    margin:auto;
+    padding:20px;
+    max-width:1600px;
+}
+
+h1,h2{
+    text-align:center;
+}
+
+.box{
+    background:#f3f3f3;
+    padding:20px;
+    border-radius:12px;
+    margin-bottom:20px;
+}
+
+.grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:15px;
+}
+
+label{
+    display:block;
+    font-weight:bold;
+    margin-bottom:5px;
+}
+
+input,select{
+    width:100%;
+    padding:10px;
+    border-radius:8px;
+    border:1px solid #ccc;
+    box-sizing:border-box;
+}
+
+button{
+    padding:12px 20px;
+    background:#007F73;
+    color:#fff;
+    border:none;
+    border-radius:8px;
+    cursor:pointer;
+}
+
+button:hover{
+    opacity:0.9;
+}
+
+table{
+    width:100%;
+    border-collapse:collapse;
+    margin-top:20px;
+    background:#fff;
+}
+
+th,td{
+    border:1px solid #ccc;
+    padding:8px;
+    text-align:center;
+    font-size:13px;
+}
+
+th{
+    background:#e6e6e6;
+}
+
+.green{
+    color:#007F73;
+    font-weight:bold;
+}
+
+.red{
+    color:#d63031;
+    font-weight:bold;
+}
+
+.orange{
+    color:#e67e22;
+    font-weight:bold;
+}
+
+.summary{
+    line-height:2;
+    font-size:18px;
+}
+
+.tableWrap{
+    overflow:auto;
+}
+
+@media(max-width:768px){
+
+    body{
+        padding:10px;
+    }
+
+    table{
+        font-size:11px;
+    }
+
+    th,td{
+        padding:5px;
+    }
+
+}
+
+</style>
+</head>
+
+<body>   
+<center><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4305348743992957"
+     crossorigin="anonymous"></script>
+<!-- sakhiadheader -->
+<ins class="adsbygoogle"
+     style="display:inline-block;width:728px;height:90px;max-height:100px;"
+     data-ad-client="ca-pub-4305348743992957"
+     data-ad-slot="1924539816"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</center>
+<hr style="width:100%; height:2px; background-color:blue; border:none;"> 
+ <a href="index.html" style=" padding:12px 20px;
+    background:blue;
+    color:#fff;
+    border:none;
+    border-radius:8px;
+    cursor:pointer;
+    margin-top:10px;text-decoration:none;">Back to Home</a>   
+    <hr style="width:100%; height:2px; background-color:blue; border:none;"> 
+
+<div class="box">
+<h1>Advanced Crypto DCA Tax Calculator</h1>
+<p style="line-height:1.8; font-size:16px;">
+This Advanced Crypto Grid DCA Calculator helps Indian crypto traders calculate:
+</p>
+
+<p style="line-height:2;">
+Crypto profit after fees | Buy and Sell TDS | Crypto tax payable | TDS refund estimation | Compounding account growth | Next DCA buy amount | Zero additional tax strategy | Crypto compounding roadmap
+</p>
+
+<p style="line-height:1.8; font-size:16px;">
+Useful for Bitcoin, Ethereum, Altcoin and automated DCA trading strategy.
+</p>
+
+</div>    
+
+<div class="box">
+
+<div class="grid">
+
+<div>
+<label>First Buy Amount (in USDT)</label>
+<input type="number" id="firstBuy" value="1" min="0.000001" step="0.01">
+</div>
+
+<div>
+<label>USDT to INR Rate (1 USDT = ₹)</label>
+<input type="number" id="usdtRate" value="80" min="0.01" step="0.01">
+</div>
+
+<div>
+<label>Number of Pairs</label>
+<select id="pairCount">
+<option value="1" selected>1 Pair</option>
+<option value="2">2 Pairs</option>
+<option value="3">3 Pairs</option>
+<option value="4">4 Pairs</option>
+<option value="5">5 Pairs</option>
+<option value="6">6 Pairs</option>
+<option value="7">7 Pairs</option>
+<option value="8">8 Pairs</option>
+<option value="9">9 Pairs</option>
+<option value="10">10 Pairs</option>
+</select>
+</div>
+
+<div>
+<label>Goal Amount (USDT)</label>
+<input type="number" id="goalAmount" value="100000" min="0.000001" step="0.01">
+</div>
+
+ <div>
+<label>Buy Fee %</label>
+<input type="number" id="buyFee" value="0.1" step="0.001">
+</div>
+
+<div>
+<label>Sell Fee %</label>
+<input type="number" id="sellFee" value="0.1" step="0.001">
+</div>
+
+<div>
+<label>Buy TDS %</label>
+<input type="number" id="buyTDS" value="1" step="0.01">
+</div>
+
+<div>
+<label>Sell TDS %</label>
+<input type="number" id="sellTDS" value="1" step="0.01">
+</div>
+   
+<div>
+<label>Target Profit %</label>
+<select id="targetSelect"></select>
+</div>
+
+<div>
+<label>Next Buy Increment %</label>
+<select id="growthUseSelect"></select>
+</div>
+
+<div>
+<label>DCA Layers Example rows</label>
+<input type="number" id="maxLayers" value="10">
+</div>
+
+
+<div>
+<label>Crypto Tax %</label>
+<input type="number" id="taxRate" value="31.2" step="0.1">
+</div>
+
+</div>
+
+<br>
+
+<button onclick="calc()">Calculate</button>
+
+</div>
+
+<div class="box">
+
+<h2>Summary</h2>
+
+<div class="summary" id="summary"></div>
+    <!-- add button -->
+<div class="box" style="text-align:center;">
+
+<h2 style="margin-bottom:10px;">
+Automate Your Crypto Spot Trading
+</h2>
+
+<p style="
+max-width:850px;
+margin:auto;
+line-height:1.9;
+font-size:16px;
+color:#444;
+">
+</p>
+<h2>GRID + DCA + Compounding Strategy Trading Bots for KuCoin</h2>
+<br>
+
+<h2 style="margin-bottom:10px;">
+Available GRID + DCA + Compounding Trading Bots for kucoin spot market
+</h2>
+
+<p style="
+max-width:900px;
+margin:auto;
+line-height:1.9;
+font-size:16px;
+color:#444;
+">
+GRID helps rotate capital faster, DCA helps systematic accumulation and compounding can accelerate long-term portfolio growth.
+</p>
+
+<br>
+
+<div style="
+display:flex;
+gap:15px;
+justify-content:center;
+flex-wrap:wrap;
+">
+
+<a href="https://gridbot.adquash.com/grid-dca-bot-script.html"
+target="_blank"
+style="background:#00c087;color:#fff;padding:14px 24px;border-radius:10px;text-decoration:none;font-size:16px;font-weight:bold;">
+Buy KuCoin Bot Script
+</a>
+
+<!-- a href="https://compoundtrading.adquash.com/wazirx-dca-bot.html"
+target="_blank"
+style="background:#f7931a;color:#fff;padding:14px 24px;border-radius:10px;text-decoration:none;font-size:16px;font-weight:bold;">
+WazirX Bot
+</a>
+
+<a href="https://compoundtrading.adquash.com/binance-dca-bot.html"
+target="_blank"
+style="background:#f3ba2f;color:#000;padding:14px 24px;border-radius:10px;text-decoration:none;font-size:16px;font-weight:bold;">
+Binance Bot
+</a>
+
+<a href="https://compoundtrading.adquash.com/angelone-dca-bot.html"
+target="_blank"
+style="background:#0057ff;color:#fff;padding:14px 24px;border-radius:10px;text-decoration:none;font-size:16px;font-weight:bold;">
+Angel One Bot
+</a -->
+
+</div>
+
+<p style="margin-top:20px;color:#666;line-height:1.8;">
+Take the first step toward long-term growth with a disciplined GRID + DCA trading system.
+</p>
+</div>
+<!-- add button end -->    
+</div>
+
+<div class="box">
+
+<h2>First Trade Details</h2>
+
+<div class="tableWrap">
+
+<table>
+
+<thead>
+
+<tr>
+
+<th>Buy</th>
+<th>Sell</th>
+<th>Target %</th>
+<th>Buy Fee</th>
+<th>Sell Fee</th>
+<th>Buy TDS</th>
+<th>Sell TDS</th>
+<th>Total TDS</th>
+<th>Tax</th>
+<th>Refund</th>
+<th>Profit</th>
+<th>Account Growth</th>
+<th>Growth %</th>
+<th>Next Buy %</th>
+<th>Next Buy</th>
+<!-- th>Need Pay Tax</th>
+<th>Tax Covered</th -->
+
+</tr>
+
+</thead>
+
+<tbody id="tradeRow"></tbody>
+
+</table>
+
+</div>
+
+</div>
+<div class="box" style="text-align:center;">
+
+<h2>
+Available Trading Platforms
+</h2>
+
+<p style="font-size:17px;line-height:1.9;max-width:900px;margin:auto;">
+Choose your preferred exchange or broker and start using GRID + DCA + Compounding based trading systems.
+</p>
+
+<br>
+
+<div style="
+display:flex;
+gap:15px;
+justify-content:center;
+flex-wrap:wrap;
+">
+
+<a href="https://gridbot.adquash.com/grid-dca-bot-script.html"
+target="_blank"
+style="background:#00c087;color:#fff;padding:14px 28px;border-radius:10px;text-decoration:none;font-size:17px;font-weight:bold;">
+Buy KuCoin Bot Script
+</a>
+
+<!-- a href="https://compoundtrading.adquash.com/wazirx-dca-bot.html"
+target="_blank"
+style="background:#f7931a;color:#fff;padding:14px 28px;border-radius:10px;text-decoration:none;font-size:17px;font-weight:bold;">
+WazirX
+</a>
+
+<a href="https://compoundtrading.adquash.com/binance-dca-bot.html"
+target="_blank"
+style="background:#f3ba2f;color:#000;padding:14px 28px;border-radius:10px;text-decoration:none;font-size:17px;font-weight:bold;">
+Binance
+</a>
+
+<a href="https://compoundtrading.adquash.com/angelone-dca-bot.html"
+target="_blank"
+style="background:#0057ff;color:#fff;padding:14px 28px;border-radius:10px;text-decoration:none;font-size:17px;font-weight:bold;">
+Angel One
+</a -->
+
+</div>
+
+<p style="margin-top:20px;color:#666;">
+GRID → Faster Fund Rotation | DCA → Smarter Accumulation | Compounding → Long-Term Growth
+</p>
+
+</div>    
+<div class="box">
+<h2>DCA Layers Example rows Details</h2>
+
+<div class="tableWrap">
+
+<table>
+
+<thead>
+
+<tr>
+
+<th>Layer</th>
+<th>Buy</th>
+<th>Sell</th>
+<th>Target %</th>
+<th>Buy Fee</th>
+<th>Sell Fee</th>
+<th>Buy TDS</th>
+<th>Sell TDS</th>
+<th>Total TDS</th>
+<th>Tax</th>
+<th>Refund</th>
+<th>Profit</th>
+<th>Account Growth</th>
+<th>Growth %</th>
+<th>Next Buy %</th>
+<th>Next Buy</th>
+<!-- th>Need Pay Tax</th -->
+<th>Total Used Fund</th>
+
+</tr>
+
+</thead>
+
+<tbody id="layerTable"></tbody>
+
+</table>
+
+</div>
+
+</div>
+
+
+<script>
+
+function moneyBoth(inrValue, rate, digits=2){
+    const value = Number(inrValue) || 0;
+    const usdt = rate > 0 ? value / rate : 0;
+    return `${usdt.toFixed(digits)} USDT<br>₹${value.toFixed(digits)}`;
+}
+
+function loadTargets(){
+
+    let buyFee =
+    parseFloat(document.getElementById('buyFee').value);
+
+    let sellFee =
+    parseFloat(document.getElementById('sellFee').value);
+
+    let buyTDS =
+    parseFloat(document.getElementById('buyTDS').value);
+
+    let sellTDS =
+    parseFloat(document.getElementById('sellTDS').value);
+
+    let taxRate =
+    parseFloat(document.getElementById('taxRate').value);
+
+    let select =
+    document.getElementById('targetSelect');
+
+    select.innerHTML = '';
+
+    for(let p=0.1; p<=15; p+=0.01){
+
+        let buyAmount = 100;
+
+        let sellAmount =
+        buyAmount * (1 + p/100);
+
+        let buyFeeAmt =
+        buyAmount * buyFee/100;
+
+        let sellFeeAmt =
+        sellAmount * sellFee/100;
+
+        let buyTDSAmt =
+        buyAmount * buyTDS/100;
+
+        let sellTDSAmt =
+        sellAmount * sellTDS/100;
+
+        let totalTDS =
+        buyTDSAmt + sellTDSAmt;
+
+        let grossProfit =
+        sellAmount - buyAmount;
+
+        let tax =
+        grossProfit * taxRate/100;
+
+        let finalAccount =
+        sellAmount
+        - buyFeeAmt
+        - sellFeeAmt
+        - totalTDS;
+
+        let realGrowth =
+        finalAccount - buyAmount;
+
+        let needPayTax =
+        tax - totalTDS;
+
+        // Keep profitable target options available even when TDS is zero
+        // or does not fully cover the estimated tax.
+        if(realGrowth > 0){
+
+            let option =
+            document.createElement('option');
+
+            option.value =
+            p.toFixed(2);
+
+            option.text =
+            p.toFixed(2) + '%';
+
+            if(
+                p >= 2 &&
+                p <= 2.65
+            ){
+                option.selected = true;
+            }
+
+            select.appendChild(option);
+
+        }
+
+    }
+
+}
+
+function loadGrowthPercentOptions(growthPercent){
+
+    let select =
+    document.getElementById('growthUseSelect');
+
+    select.innerHTML = '';
+
+    for(let p=0.1; p<=growthPercent; p+=0.1){
+
+        let option =
+        document.createElement('option');
+
+        option.value =
+        p.toFixed(1);
+
+        option.text =
+        p.toFixed(1) + '%';
+
+        if(
+            Math.abs(
+                p - (growthPercent*0.5)
+            ) < 0.05
+        ){
+            option.selected = true;
+        }
+
+        select.appendChild(option);
+
+    }
+
+}
+
+function calc(){
+
+    let firstBuyUsdt =
+    parseFloat(document.getElementById('firstBuy').value);
+
+    let usdtRate =
+    parseFloat(document.getElementById('usdtRate').value);
+
+    // Convert the per-pair first buy from USDT into INR for all calculations.
+    let firstBuy = firstBuyUsdt * usdtRate;
+
+    let goalAmountUsdt =
+    parseFloat(document.getElementById('goalAmount').value);
+
+    // Goal is entered in USDT; calculations continue internally in INR.
+    let goalAmount = goalAmountUsdt * usdtRate;
+
+    let pairCount =
+    parseInt(document.getElementById('pairCount').value, 10);
+
+    let maxLayers =
+    parseInt(document.getElementById('maxLayers').value);
+
+    let buyFee =
+    parseFloat(document.getElementById('buyFee').value)/100;
+
+    let sellFee =
+    parseFloat(document.getElementById('sellFee').value)/100;
+
+    let buyTDS =
+    parseFloat(document.getElementById('buyTDS').value)/100;
+
+    let sellTDS =
+    parseFloat(document.getElementById('sellTDS').value)/100;
+
+    let taxRate =
+    parseFloat(document.getElementById('taxRate').value)/100;
+
+    let target =
+    parseFloat(document.getElementById('targetSelect').value)/100;
+
+    // FIRST TRADE
+
+    let sellAmount =
+    firstBuy * (1 + target);
+
+    let buyFeeAmt =
+    firstBuy * buyFee;
+
+    let sellFeeAmt =
+    sellAmount * sellFee;
+
+    let buyTDSAmt =
+    firstBuy * buyTDS;
+
+    let sellTDSAmt =
+    sellAmount * sellTDS;
+
+    let totalTDS =
+    buyTDSAmt + sellTDSAmt;
+
+    let grossProfit =
+    sellAmount - firstBuy;
+
+    let tax =
+    grossProfit * taxRate;
+
+    let refund =
+    Math.max(0,totalTDS-tax);
+
+    let totalFee =
+    buyFeeAmt + sellFeeAmt;
+
+    let accountGrowth =
+    sellAmount
+    - totalFee
+    - totalTDS;
+
+    let pureGrowth =
+    accountGrowth - firstBuy;
+
+    let growthPercent =
+    (pureGrowth/firstBuy)*100;
+
+    if(
+        document.getElementById('growthUseSelect')
+        .options.length == 0
+    ){
+        loadGrowthPercentOptions(growthPercent);
+    }
+
+    let nextBuyPercent =
+    parseFloat(
+        document.getElementById('growthUseSelect').value
+    );
+
+    let nextBuy =
+    firstBuy *
+    (
+        1 +
+        nextBuyPercent/100
+    );
+
+    let needTax =
+    Math.max(0,tax-totalTDS);
+
+    let taxCovered =
+    totalTDS >= tax ? 'YES' : 'NO';
+
+    document.getElementById('tradeRow').innerHTML = `
+
+    <tr>
+
+    <td>${moneyBoth(firstBuy,usdtRate,5)}</td>
+
+    <td>${moneyBoth(sellAmount,usdtRate,5)}</td>
+
+    <td>${(target*100).toFixed(5)}%</td>
+
+    <td>${moneyBoth(buyFeeAmt,usdtRate,5)}</td>
+
+    <td>${moneyBoth(sellFeeAmt,usdtRate,5)}</td>
+
+    <td>${moneyBoth(buyTDSAmt,usdtRate,5)}</td>
+
+    <td>${moneyBoth(sellTDSAmt,usdtRate,5)}</td>
+
+    <td>${moneyBoth(totalTDS,usdtRate,5)}</td>
+
+    <td>${moneyBoth(tax,usdtRate,5)}</td>
+
+    <td class="green">
+    ${moneyBoth(refund,usdtRate,5)}
+    </td>
+
+    <td class="${pureGrowth>=0?'green':'red'}">
+    ${moneyBoth(pureGrowth,usdtRate,5)}
+    </td>
+
+    <td class="${accountGrowth>=firstBuy?'green':'red'}">
+    ${moneyBoth(accountGrowth,usdtRate,5)}
+    </td>
+
+    <td class="${growthPercent>=0?'green':'red'}">
+    ${growthPercent.toFixed(4)}%
+    </td>
+
+    <td>
+    ${nextBuyPercent.toFixed(2)}%
+    </td>
+
+    <td class="orange">
+    ${moneyBoth(nextBuy,usdtRate,5)}
+    </td>
+
+    <!-- td class="${needTax>0?'red':'green'}">
+    ${moneyBoth(needTax,usdtRate,5)}
+    </td>
+
+    <td class="${taxCovered=='YES'?'green':'red'}">
+    ${taxCovered}
+    </td -->
+
+    </tr>
+
+    `;
+
+// DCA DETAILS TABLE
+
+let layerHtml = '';
+
+let currentBuy =
+firstBuy;
+
+let totalFund = 0;
+
+for(let i=1; i<=maxLayers; i++){
+
+    let sellAmountLayer =
+    currentBuy * (1 + target);
+
+    let buyFeeLayer =
+    currentBuy * buyFee;
+
+    let sellFeeLayer =
+    sellAmountLayer * sellFee;
+
+    let buyTDSLayer =
+    currentBuy * buyTDS;
+
+    let sellTDSLayer =
+    sellAmountLayer * sellTDS;
+
+    let totalTDSLayer =
+    buyTDSLayer + sellTDSLayer;
+
+    let grossProfitLayer =
+    sellAmountLayer - currentBuy;
+
+    let taxLayer =
+    grossProfitLayer * taxRate;
+
+    let refundLayer =
+    Math.max(0,totalTDSLayer-taxLayer);
+
+    let totalFeeLayer =
+    buyFeeLayer + sellFeeLayer;
+
+    let accountGrowthLayer =
+    sellAmountLayer
+    - totalFeeLayer
+    - totalTDSLayer;
+
+    let pureGrowthLayer =
+    accountGrowthLayer - currentBuy;
+
+    let growthPercentLayer =
+    (pureGrowthLayer/currentBuy)*100;
+
+    let nextBuyLayer =
+    currentBuy *
+    (
+        1 +
+        nextBuyPercent/100
+    );
+
+    let needTaxLayer =
+    Math.max(
+        0,
+        taxLayer-totalTDSLayer
+    );
+
+    totalFund += currentBuy;
+
+    layerHtml += `
+
+    <tr>
+
+    <td>${i}</td>
+
+    <td>${moneyBoth(currentBuy,usdtRate,2)}</td>
+
+    <td>${moneyBoth(sellAmountLayer,usdtRate,2)}</td>
+
+    <td>${(target*100).toFixed(2)}%</td>
+
+    <td>${moneyBoth(buyFeeLayer,usdtRate,2)}</td>
+
+    <td>${moneyBoth(sellFeeLayer,usdtRate,2)}</td>
+
+    <td>${moneyBoth(buyTDSLayer,usdtRate,2)}</td>
+
+    <td>${moneyBoth(sellTDSLayer,usdtRate,2)}</td>
+
+    <td>${moneyBoth(totalTDSLayer,usdtRate,2)}</td>
+
+    <td>${moneyBoth(taxLayer,usdtRate,2)}</td>
+
+    <td class="green">
+    ${moneyBoth(refundLayer,usdtRate,2)}
+    </td>
+
+    <td class="${
+        pureGrowthLayer>=0
+        ? 'green'
+        : 'red'
+    }">
+
+    ${moneyBoth(pureGrowthLayer,usdtRate,2)}
+
+    </td>
+
+    <td class="${
+        accountGrowthLayer>=currentBuy
+        ? 'green'
+        : 'red'
+    }">
+
+    ${moneyBoth(accountGrowthLayer,usdtRate,2)}
+
+    </td>
+
+    <td class="${
+        growthPercentLayer>=0
+        ? 'green'
+        : 'red'
+    }">
+
+    ${growthPercentLayer.toFixed(5)}%
+
+    </td>
+
+    <td>
+    ${nextBuyPercent.toFixed(1)}%
+    </td>
+
+    <td class="orange">
+    ${moneyBoth(nextBuyLayer,usdtRate,2)}
+    </td>
+
+    <!-- td class="${
+        needTaxLayer>0
+        ? 'red'
+        : 'green'
+    }">
+
+    ${moneyBoth(needTaxLayer,usdtRate,2)}
+
+    </td -->
+
+    <td class="orange">
+    ${moneyBoth(totalFund,usdtRate,2)}
+    </td>
+
+    </tr>
+
+    `;
+
+    currentBuy = nextBuyLayer;
+
+}
+
+document.getElementById('layerTable').innerHTML =
+layerHtml;
+
+    // COMPOUNDING
+
+    // Each selected pair starts with the entered First Buy Amount (USDT),
+    // converted into INR using the current USDT/INR rate.
+    // Goal Amount is the combined value of all selected pairs.
+    let initialTotalCapital = firstBuy * pairCount;
+    let amount = initialTotalCapital;
+
+    let cycles = 0;
+
+    let totalTaxAll = 0;
+
+    let totalTDSAll = 0;
+
+    let totalRefundAll = 0;
+
+    while(amount < goalAmount && cycles < 100000){
+
+        cycles++;
+
+        let sell =
+        amount * (1 + target);
+
+        let bf =
+        amount * buyFee;
+
+        let sf =
+        sell * sellFee;
+
+        let bt =
+        amount * buyTDS;
+
+        let st =
+        sell * sellTDS;
+
+        let tds =
+        bt + st;
+
+        let gp =
+        sell - amount;
+
+        let tx =
+        gp * taxRate;
+
+        let rf =
+        Math.max(0,tds-tx);
+
+        totalTaxAll += tx;
+
+        totalTDSAll += tds;
+
+        totalRefundAll += rf;
+
+        amount =
+        amount *
+        (
+            1 +
+            nextBuyPercent/100
+        );
+
+        if(amount >= goalAmount){
+            break;
+        }
+
+    }
+
+    let totalGrowth =
+    ((amount-initialTotalCapital)/initialTotalCapital)*100;
+
+    let finalBuyPerPair = amount / pairCount;
+
+    document.getElementById('summary').innerHTML = `
+
+    <b>Total Cycles Needed:</b>
+    <span class="green">${cycles} </span> per pair
+
+    <br>
+
+    <b>First Buy Amount (Per Pair):</b>
+    <span class="orange">${firstBuyUsdt.toFixed(4)} USDT (${moneyBoth(firstBuy,usdtRate,2)})</span>
+
+    <br>
+
+    <b>Goal Amount:</b>
+    <span class="green">${goalAmountUsdt.toFixed(2)} USDT (₹${goalAmount.toFixed(2)})</span>
+
+    <br>
+
+    <b>Current USDT Rate:</b>
+    <span class="orange">₹${usdtRate.toFixed(2)} per USDT</span>
+
+    <br>
+
+    <b>Selected Pairs:</b>
+    <span class="orange">${pairCount}</span>
+
+    <br>
+
+    <b>Initial Capital (All Pairs):</b>
+    <span class="green">${moneyBoth(initialTotalCapital,usdtRate,2)}</span>
+
+    <br>
+
+    <b>Selected Target:</b>
+    <span class="orange">${(target*100).toFixed(2)}%</span>
+
+    <br>
+
+    <b>Selected Next Buy Increment:</b>
+    <span class="orange">${nextBuyPercent.toFixed(1)}%</span>
+
+    <br>
+
+    <b>Final Buy Amount (Per Pair):</b>
+    <span class="green">${moneyBoth(finalBuyPerPair,usdtRate,2)}</span>
+
+    <br>
+
+    <b>Final Account Value (All Pairs):</b>
+    <span class="green">${moneyBoth(amount,usdtRate,2)}</span>
+
+    <br>
+
+    <b>Total Growth:</b>
+    <span class="green">${totalGrowth.toFixed(2)}%</span>
+
+    <br>
+
+    <b>Total Deducted TDS:</b>
+    <span class="red">${moneyBoth(totalTDSAll,usdtRate,2)}</span>
+
+    <!-- br>
+
+    <b>Total Payable Tax:</b>
+    <span class="red">${moneyBoth(totalTaxAll,usdtRate,2)}</span -->
+
+    <br>
+
+    <b>Total TDS Refund:</b>
+    <span class="green">${moneyBoth(totalRefundAll,usdtRate,2)}</span>
+
+    `;
+
+}
+
+[
+'firstBuy',
+'usdtRate',
+'pairCount',
+'goalAmount',
+'maxLayers',
+'buyFee',
+'sellFee',
+'buyTDS',
+'sellTDS',
+'taxRate'
+]
+.forEach(id=>{
+
+    document.getElementById(id)
+    .addEventListener('input',()=>{
+
+        loadTargets();
+
+        document.getElementById('growthUseSelect')
+        .innerHTML = '';
+
+        calc();
+
+    });
+
+});
+
+loadTargets();
+
+calc();
+
+document
+.getElementById('pairCount')
+.addEventListener('change',calc);
+
+document
+.getElementById('targetSelect')
+.addEventListener('change',()=>{
+
+    document.getElementById('growthUseSelect')
+    .innerHTML = '';
+
+    calc();
+
+});
+
+document
+.getElementById('growthUseSelect')
+.addEventListener('change',calc);
+</script>
+<div class="box">
+
+<h2>
+Disclaimer
+</h2>
+
+<p style="line-height:2; color:#444;">
+This calculator is for educational and informational purposes only.
+Crypto trading involves risk. Tax calculations are estimated and may differ based on exchange fees, local laws and personal tax situations.
+</p>
+
+<p style="line-height:2; color:#444;">
+Always consult a professional tax advisor before making financial or tax decisions.
+</p>
+
+<p style="line-height:2; color:#444;">
+We do not guarantee profits, returns or accuracy of future market conditions.
+</p>
+<!-- Legal Safety Disclaimer for Calculation -->
+        <p style="font-size: 11px; color: #94a3b8; font-style: italic; margin-top: 15px; line-height: 1.4; border-top: 1px dashed #334155; padding-top: 10px;">
+            *Disclaimer: This calculation is based on pure mathematical compounding simulations. Actual bot trading results may vary significantly based on market volatility, exchange liquidity, and live execution variables. Past simulated performance does not guarantee future returns.
+        </p>
+</div>
+<div style="margin-top:30px; line-height:2; color:#666; font-size:14px; text-align:center;">
+
+Crypto Tax Calculator India | Bitcoin Profit Calculator | DCA Calculator | Crypto Compounding Calculator | KuCoin DCA Bot Strategy | Crypto TDS Refund Calculator | Crypto Trading Calculator India | Bitcoin Tax India | Ethereum Tax Calculator
+
+</div>	
+</body>
+</html>
